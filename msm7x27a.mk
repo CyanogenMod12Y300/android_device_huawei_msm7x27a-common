@@ -175,7 +175,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.config.low_ram=true \
     config.disable_atlas=true \
-    dalvik.vm.jit.codecachesize=0 \
     persist.sys.force_highendgfx=true \
     ro.config.max_starting_bg=8 \
     ro.sys.fw.bg_apps_limit=16
