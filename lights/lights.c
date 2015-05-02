@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2008 The Android Open Source Project
+ * Copyright (C) 2015 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,7 +16,7 @@
 
 
 // #define LOG_NDEBUG 0
-#define LOG_TAG "lights.msm7x27a"
+#define LOG_TAG "lights"
 
 #include <cutils/log.h>
 
@@ -31,19 +31,24 @@
 #include <sys/types.h>
 
 #include <hardware/lights.h>
-#include <hardware_legacy/power.h>
 
 /******************************************************************************/
 
 static pthread_once_t g_init = PTHREAD_ONCE_INIT;
 static pthread_mutex_t g_lock = PTHREAD_MUTEX_INITIALIZER;
+static int g_haveTrackballLight = 0;
 static struct light_state_t g_notification;
 static struct light_state_t g_battery;
 static int g_backlight = 255;
+static int g_trackball = -1;
 static int g_buttons = 0;
 static int g_attention = 0;
+static int g_flash = 0;
+static int g_ptt_led = 0;
+static int g_haveAmberLed = 0;
 
-static pthread_t t_led_blink = 0;
+char const*const TRACKBALL_FILE
+        = "/sys/class/leds/jogball-backlight/brightness";
 
 char const*const RED_LED_FILE
         = "/sys/class/leds/red/brightness";
@@ -54,15 +59,31 @@ char const*const GREEN_LED_FILE
 char const*const BLUE_LED_FILE
         = "/sys/class/leds/blue/brightness";
 
+char const*const AMBER_LED_FILE
+        = "/sys/class/leds/amber/brightness";
+
 char const*const LCD_FILE
         = "/sys/class/leds/lcd-backlight/brightness";
+
+char const*const RED_FREQ_FILE
+        = "/sys/class/leds/red/device/grpfreq";
+
+char const*const RED_PWM_FILE
+        = "/sys/class/leds/red/device/grppwm";
+
+char const*const RED_BLINK_FILE
+        = "/sys/class/leds/red/device/blink";
+
+char const*const AMBER_BLINK_FILE
+        = "/sys/class/leds/amber/blink";
+
+char const*const KEYBOARD_FILE
+        = "/sys/class/leds/keyboard-backlight/brightness";
 
 char const*const BUTTON_FILE
         = "/sys/class/leds/button-backlight/brightness";
 
-int red, green, blue = 0;
-int blink, freq, pwm = 0;
-int totalMS, onMS, offMS = 0;
+extern void huawei_oem_rapi_streaming_function(int, int, int, int, int *, int *, int *);
 
 /**
  * device methods
@@ -73,6 +94,12 @@ void init_globals(void)
     // init the mutex
     pthread_mutex_init(&g_lock, NULL);
 
+    // figure out if we have the trackball LED or not
+    g_haveTrackballLight = (access(TRACKBALL_FILE, W_OK) == 0) ? 1 : 0;
+
+    /* figure out if we have the amber LED or not.
+       If yes, just support green and amber.         */
+    g_haveAmberLed = (access(AMBER_LED_FILE, W_OK) == 0) ? 1 : 0;
 }
 
 static int
@@ -104,6 +131,26 @@ is_lit(struct light_state_t const* state)
 }
 
 static int
+handle_trackball_light_locked(struct light_device_t* dev)
+{
+    int mode = g_attention;
+
+    if (mode == 7 && g_backlight) {
+        mode = 0;
+    }
+    ALOGV("%s g_backlight = %d, mode = %d, g_attention = %d\n",
+        __func__, g_backlight, mode, g_attention);
+
+    // If the value isn't changing, don't set it, because this
+    // can reset the timer on the breathing mode, which looks bad.
+    if (g_trackball == mode) {
+        return 0;
+    }
+
+    return write_int(TRACKBALL_FILE, mode);
+}
+
+static int
 rgb_to_brightness(struct light_state_t const* state)
 {
     int color = state->color & 0x00ffffff;
@@ -120,6 +167,21 @@ set_light_backlight(struct light_device_t* dev,
     pthread_mutex_lock(&g_lock);
     g_backlight = brightness;
     err = write_int(LCD_FILE, brightness);
+    if (g_haveTrackballLight) {
+        handle_trackball_light_locked(dev);
+    }
+    pthread_mutex_unlock(&g_lock);
+    return err;
+}
+
+static int
+set_light_keyboard(struct light_device_t* dev,
+        struct light_state_t const* state)
+{
+    int err = 0;
+    int on = is_lit(state);
+    pthread_mutex_lock(&g_lock);
+    err = write_int(KEYBOARD_FILE, on?255:0);
     pthread_mutex_unlock(&g_lock);
     return err;
 }
@@ -137,38 +199,16 @@ set_light_buttons(struct light_device_t* dev,
     return err;
 }
 
-void
-*led_blink()
-{
-    while(blink) {
-        // pwm = 0 => always off
-        if(pwm != 0) {
-            write_int(RED_LED_FILE, red);
-            write_int(GREEN_LED_FILE, green);
-            write_int(BLUE_LED_FILE, blue);
-            usleep(onMS * 1000);
-        }
-
-        // pwm = 255 => always on
-        if(pwm != 255) {
-            write_int(RED_LED_FILE, 0);
-            write_int(GREEN_LED_FILE, 0);
-            write_int(BLUE_LED_FILE, 0);
-            usleep(offMS * 1000);
-        }
-    }
-    release_wake_lock("blink");
-    return 0;
-}
-
 static int
 set_speaker_light_locked(struct light_device_t* dev,
         struct light_state_t const* state)
 {
     int len;
-    int alpha;
+    int alpha, red, green, blue;
+    int blink, freq, pwm;
+    int onMS, offMS;
     unsigned int colorRGB;
-
+	int v[3];
     switch (state->flashMode) {
         case LIGHT_FLASH_TIMED:
             onMS = state->flashOnMS;
@@ -192,14 +232,32 @@ set_speaker_light_locked(struct light_device_t* dev,
     green = (colorRGB >> 8) & 0xFF;
     blue = colorRGB & 0xFF;
 
+    if (!g_haveAmberLed) {
+        write_int(RED_LED_FILE, red);
+        write_int(GREEN_LED_FILE, green);
+        write_int(BLUE_LED_FILE, blue);
+    } else {
+        /* all of related red led is replaced by amber */
+        if (red) {
+            write_int(AMBER_LED_FILE, 1);
+            write_int(GREEN_LED_FILE, 0);
+        } else if (green) {
+            write_int(AMBER_LED_FILE, 0);
+            write_int(GREEN_LED_FILE, 1);
+        } else {
+            write_int(GREEN_LED_FILE, 0);
+            write_int(AMBER_LED_FILE, 0);
+        }
+    }
+
     if (onMS > 0 && offMS > 0) {
-        totalMS = onMS + offMS;
+        int totalMS = onMS + offMS;
 
         // the LED appears to blink about once per second if freq is 20
         // 1000ms / 20 = 50
         freq = totalMS / 50;
         // pwm specifies the ratio of ON versus OFF
-        // pwm = 0 => always off
+        // pwm = 0 -> always off
         // pwm = 255 => always on
         pwm = (onMS * 255) / totalMS;
 
@@ -208,19 +266,30 @@ set_speaker_light_locked(struct light_device_t* dev,
             pwm = 16;
 
         blink = 1;
+
+        v[0] = colorRGB;
+        v[1] = onMS/2;
+        v[2] = offMS;
+        huawei_oem_rapi_streaming_function(0x26, 0, 0, 0xC, v, 0, 0);
     } else {
         blink = 0;
         freq = 0;
         pwm = 0;
+
+        v[0] = colorRGB;
+        v[1] = 0;
+        v[2] = 0;
+        huawei_oem_rapi_streaming_function(0x26, 0, 0, 0xC, v, 0, 0);
     }
 
-    if(blink) {
-        acquire_wake_lock(PARTIAL_WAKE_LOCK, "blink");
-        pthread_create(&t_led_blink, NULL, led_blink, NULL);
+    if (!g_haveAmberLed) {
+        if (blink) {
+            write_int(RED_FREQ_FILE, freq);
+            write_int(RED_PWM_FILE, pwm);
+        }
+        write_int(RED_BLINK_FILE, blink);
     } else {
-        write_int(RED_LED_FILE, red);
-        write_int(GREEN_LED_FILE, green);
-        write_int(BLUE_LED_FILE, blue);
+        write_int(AMBER_BLINK_FILE, blink);
     }
 
     return 0;
@@ -229,10 +298,10 @@ set_speaker_light_locked(struct light_device_t* dev,
 static void
 handle_speaker_battery_locked(struct light_device_t* dev)
 {
-    if (is_lit(&g_notification)) {
-        set_speaker_light_locked(dev, &g_notification);
-    } else {
+    if (is_lit(&g_battery)) {
         set_speaker_light_locked(dev, &g_battery);
+    } else {
+        set_speaker_light_locked(dev, &g_notification);
     }
 }
 
@@ -242,6 +311,9 @@ set_light_battery(struct light_device_t* dev,
 {
     pthread_mutex_lock(&g_lock);
     g_battery = *state;
+    if (g_haveTrackballLight) {
+        set_speaker_light_locked(dev, state);
+    }
     handle_speaker_battery_locked(dev);
     pthread_mutex_unlock(&g_lock);
     return 0;
@@ -253,6 +325,11 @@ set_light_notifications(struct light_device_t* dev,
 {
     pthread_mutex_lock(&g_lock);
     g_notification = *state;
+    ALOGV("set_light_notifications g_trackball=%d color=0x%08x",
+            g_trackball, state->color);
+    if (g_haveTrackballLight) {
+        handle_trackball_light_locked(dev);
+    }
     handle_speaker_battery_locked(dev);
     pthread_mutex_unlock(&g_lock);
     return 0;
@@ -263,13 +340,100 @@ set_light_attention(struct light_device_t* dev,
         struct light_state_t const* state)
 {
     pthread_mutex_lock(&g_lock);
+    ALOGV("set_light_attention g_trackball=%d color=0x%08x",
+            g_trackball, state->color);
     if (state->flashMode == LIGHT_FLASH_HARDWARE) {
         g_attention = state->flashOnMS;
     } else if (state->flashMode == LIGHT_FLASH_NONE) {
         g_attention = 0;
     }
+    if (g_haveTrackballLight) {
+        handle_trackball_light_locked(dev);
+    }
     pthread_mutex_unlock(&g_lock);
     return 0;
+}
+
+static int
+set_light_ptt_led(struct light_device_t* dev,
+        struct light_state_t const* state)
+{
+    // really need to disable this shit on u8833
+    int v[3];
+    int onMS;
+    int offMS;
+    int blink = 0;
+
+    pthread_mutex_lock(&g_lock);
+    if (state->flashMode == LIGHT_FLASH_TIMED)
+    {
+        onMS = state->flashOnMS;
+        offMS = state->flashOffMS;
+    }
+    else
+    {
+        onMS = 0;
+        offMS = 0;
+    }
+    ALOGW("PTT light current color value = %d, onMS=%d, offMS=%d\n", state->color, onMS, offMS);
+
+    if (offMS > 0)
+        blink = onMS > 0;
+
+    ALOGE("set_ptt_led blink function is come in!\n");
+
+    v[0] = onMS; // /2
+    v[1] = offMS;
+    v[2] = blink;
+    huawei_oem_rapi_streaming_function(0xCB, 0, 0, 0xC, v, 0, 0);
+
+    if (blink) {
+        g_ptt_led = 1;
+        ALOGE("set_ptt_led blink!\n");
+    } else if (g_ptt_led) {
+        g_ptt_led = 0;
+    }
+
+    pthread_mutex_unlock(&g_lock);
+    return 0;
+}
+
+static int
+set_light_flash(struct light_device_t* dev,
+        struct light_state_t const* state)
+{
+    int err = 0;
+    int hw_led;
+    signed int color;
+    int kernel_color;
+
+    color = state->color;
+    pthread_mutex_lock(&g_lock);
+    hw_led = open("/dev/hw_led", O_RDWR);
+    if (hw_led >= 0)
+    {
+        kernel_color = 0;
+        err = ioctl(hw_led, 0, &kernel_color);
+
+        if (color < 4 && color > 0)
+            color += 5;
+
+        if ( kernel_color != color )
+        {
+            kernel_color = color;
+            err = ioctl(hw_led, 1u, &kernel_color);
+        }
+
+        close(hw_led);
+        pthread_mutex_unlock(&g_lock);
+    }
+    else
+    {
+        err = -1;
+        ALOGE("-------------------set_light_flash open /dev/hw_led fail");
+    }
+
+    return err;
 }
 
 
@@ -297,8 +461,13 @@ static int open_lights(const struct hw_module_t* module, char const* name,
     int (*set_light)(struct light_device_t* dev,
             struct light_state_t const* state);
 
+    int hw_led = 0;
+
     if (0 == strcmp(LIGHT_ID_BACKLIGHT, name)) {
         set_light = set_light_backlight;
+    }
+    else if (0 == strcmp(LIGHT_ID_KEYBOARD, name)) {
+        set_light = set_light_keyboard;
     }
     else if (0 == strcmp(LIGHT_ID_BUTTONS, name)) {
         set_light = set_light_buttons;
@@ -312,7 +481,18 @@ static int open_lights(const struct hw_module_t* module, char const* name,
     else if (0 == strcmp(LIGHT_ID_ATTENTION, name)) {
         set_light = set_light_attention;
     }
-    else {
+    else if (0 == strcmp("flash", name)) {
+        hw_led = open("/dev/hw_led", O_RDWR);
+        if (hw_led >= 0)
+        {
+            close(hw_led);
+            set_light = set_light_flash;
+        }
+        ALOGE("-------------------open_lights open /dev/hw_led fail");
+    }
+    else if (0 == strcmp("ptt_led", name)) {
+        set_light = set_light_ptt_led;
+    } else {
         return -EINVAL;
     }
 
@@ -348,3 +528,4 @@ struct hw_module_t HAL_MODULE_INFO_SYM = {
     .author = "Google, Inc.",
     .methods = &lights_module_methods,
 };
+
