@@ -206,6 +206,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Use ART small mode
 PRODUCT_PROPERTY_OVERRIDES += \
    dalvik.vm.dex2oat-filter=interpret-only \
+   dalvik.vm.dex2oat-flags=--no-watch-dog \
    dalvik.vm.image-dex2oat-filter=speed
 
 # ART properties
