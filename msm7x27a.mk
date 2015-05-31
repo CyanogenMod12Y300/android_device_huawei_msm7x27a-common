@@ -209,10 +209,4 @@ PRODUCT_PROPERTY_OVERRIDES += \
    dalvik.vm.dex2oat-flags=--no-watch-dog \
    dalvik.vm.image-dex2oat-filter=speed
 
-ADDITIONAL_DEFAULT_PROPERTIES += \
-   dalvik.vm.dex2oat-Xms=8m \
-   dalvik.vm.dex2oat-Xmx=96m \
-   dalvik.vm.image-dex2oat-Xms=48m \
-   dalvik.vm.image-dex2oat-Xmx=48m
-
 $(call inherit-product, vendor/huawei/msm7x27a-common/msm7x27a-common-vendor.mk)
