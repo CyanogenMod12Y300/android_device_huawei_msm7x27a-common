@@ -1,0 +1,27 @@
+From 9dfb12a8e2cfe58a936f937d8a7698ac74f3fcb7 Mon Sep 17 00:00:00 2001
+From: Lars Greiss <kufikugel@googlemail.com>
+Date: Sat, 19 Apr 2014 15:47:36 +0200
+Subject: [PATCH] Settings: apple can do...we can do as well
+
+incredible apple engineers speeded up the overall UI and reduced per default slightly
+the animation scales. Well we do as well and reduce it from 1 to 0.25...smooth, looks well
+and does not break anything
+
+Change-Id: Ifab9c0111429389d715319e4f272a8298c4dba80
+---
+ src/com/android/settings/DevelopmentSettings.java | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/com/android/settings/DevelopmentSettings.java b/src/com/android/settings/DevelopmentSettings.java
+index 73affd1..f278a86 100644
+--- a/src/com/android/settings/DevelopmentSettings.java
++++ b/src/com/android/settings/DevelopmentSettings.java
+@@ -1209,7 +1209,7 @@ private void updateAnimationScaleOptions() {
+ 
+     private void writeAnimationScaleOption(int which, ListPreference pref, Object newValue) {
+         try {
+-            float scale = newValue != null ? Float.parseFloat(newValue.toString()) : 1;
++            float scale = newValue != null ? Float.parseFloat(newValue.toString()) : 0.25f;
+             mWindowManager.setAnimationScale(which, scale);
+             updateAnimationScaleValue(which, pref);
+         } catch (RemoteException e) {
