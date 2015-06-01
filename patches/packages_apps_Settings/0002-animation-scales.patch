@@ -1,0 +1,1719 @@
+From 5136b228727ade5e88ab9b20f2ab32208e67c208 Mon Sep 17 00:00:00 2001
+From: Lars Greiss <kufikugel@googlemail.com>
+Date: Sat, 31 Aug 2013 07:15:32 +0200
+Subject: [PATCH] Settings: add development animation transition mode 0.75 and
+ 0.25
+
+Change-Id: Iaaeb3757ef9b3b97d66d929629e9035ab511f72a
+---
+ res/values-af/arrays.xml     | 10 ++++++++--
+ res/values-am/arrays.xml     |  6 ++++++
+ res/values-ar/arrays.xml     | 42 ++++++++++++++++++++++++------------------
+ res/values-bg/arrays.xml     |  6 ++++++
+ res/values-ca/arrays.xml     |  6 ++++++
+ res/values-cs/arrays.xml     |  6 ++++++
+ res/values-da/arrays.xml     |  6 ++++++
+ res/values-de/arrays.xml     |  6 ++++++
+ res/values-el/arrays.xml     |  6 ++++++
+ res/values-en-rGB/arrays.xml |  6 ++++++
+ res/values-es-rUS/arrays.xml |  6 ++++++
+ res/values-es/arrays.xml     |  6 ++++++
+ res/values-fa/arrays.xml     |  6 ++++++
+ res/values-fi/arrays.xml     |  6 ++++++
+ res/values-fr/arrays.xml     |  6 ++++++
+ res/values-hi/arrays.xml     |  6 ++++++
+ res/values-hr/arrays.xml     |  6 ++++++
+ res/values-hu/arrays.xml     |  6 ++++++
+ res/values-in/arrays.xml     |  6 ++++++
+ res/values-it/arrays.xml     |  6 ++++++
+ res/values-iw/arrays.xml     | 42 ++++++++++++++++++++++++------------------
+ res/values-ja/arrays.xml     |  6 ++++++
+ res/values-ko/arrays.xml     |  6 ++++++
+ res/values-lt/arrays.xml     |  6 ++++++
+ res/values-lv/arrays.xml     |  6 ++++++
+ res/values-nb/arrays.xml     |  6 ++++++
+ res/values-nl/arrays.xml     |  6 ++++++
+ res/values-pl/arrays.xml     |  6 ++++++
+ res/values-pt-rPT/arrays.xml |  6 ++++++
+ res/values-pt/arrays.xml     | 26 ++++++++++++++++----------
+ res/values-ro/arrays.xml     |  6 ++++++
+ res/values-ru/arrays.xml     |  6 ++++++
+ res/values-sk/arrays.xml     |  6 ++++++
+ res/values-sl/arrays.xml     |  6 ++++++
+ res/values-sr/arrays.xml     |  6 ++++++
+ res/values-sv/arrays.xml     |  6 ++++++
+ res/values-sw/arrays.xml     |  6 ++++++
+ res/values-th/arrays.xml     |  6 ++++++
+ res/values-tl/arrays.xml     |  6 ++++++
+ res/values-tr/arrays.xml     |  6 ++++++
+ res/values-uk/arrays.xml     |  6 ++++++
+ res/values-vi/arrays.xml     |  6 ++++++
+ res/values-zh-rCN/arrays.xml |  6 ++++++
+ res/values-zh-rTW/arrays.xml |  6 ++++++
+ res/values-zu/arrays.xml     |  6 ++++++
+ res/values/arrays.xml        | 12 ++++++++++++
+ 46 files changed, 330 insertions(+), 48 deletions(-)
+
+diff --git a/res/values-af/arrays.xml b/res/values-af/arrays.xml
+index 862babe..db0ca53 100644
+--- a/res/values-af/arrays.xml
++++ b/res/values-af/arrays.xml
+@@ -409,7 +409,9 @@
+   </string-array>
+   <string-array name="window_animation_scale_entries">
+     <item msgid="8134156599370824081">"Animasie af"</item>
++    <item>"Animasieskaal .25x"</item>
+     <item msgid="6624864048416710414">"Animasieskaal .5x"</item>
++    <item>"Animasieskaal .75x"</item>
+     <item msgid="2219332261255416635">"Animasieskaal 1x"</item>
+     <item msgid="3544428804137048509">"Animasieskaal 1.5x"</item>
+     <item msgid="3110710404225974514">"Animasieskaal 2x"</item>
+@@ -418,7 +420,9 @@
+   </string-array>
+   <string-array name="transition_animation_scale_entries">
+     <item msgid="8464255836173039442">"Animasie af"</item>
++    <item>"Animasieskaal .25x"</item>
+     <item msgid="3375781541913316411">"Animasieskaal .5x"</item>
++    <item>"Animasieskaal .75x"</item>
+     <item msgid="1991041427801869945">"Animasieskaal 1x"</item>
+     <item msgid="4012689927622382874">"Animasieskaal 1.5x"</item>
+     <item msgid="3289156759925947169">"Animasieskaal 2x"</item>
+@@ -427,9 +431,11 @@
+   </string-array>
+   <string-array name="animator_duration_scale_entries">
+     <item msgid="6039901060648228241">"Animasie af"</item>
+-    <item msgid="1138649021950863198">"Animasieskaal 0,5x"</item>
++    <item>"Animasieskaal .25x"</item>
++    <item msgid="1138649021950863198">"Animasieskaal .5x"</item>
++    <item>"Animasieskaal .75x"</item>
+     <item msgid="4394388961370833040">"Animasieskaal 1x"</item>
+-    <item msgid="8125427921655194973">"Animasieskaal 1,5x"</item>
++    <item msgid="8125427921655194973">"Animasieskaal 1.5x"</item>
+     <item msgid="3334024790739189573">"Animasieskaal 2x"</item>
+     <item msgid="3170120558236848008">"Animasieskaal 5x"</item>
+     <item msgid="1069584980746680398">"Animasieskaal 10x"</item>
+diff --git a/res/values-am/arrays.xml b/res/values-am/arrays.xml
+index 28f1e1d..a93839b 100644
+--- a/res/values-am/arrays.xml
++++ b/res/values-am/arrays.xml
+@@ -409,7 +409,9 @@
+   </string-array>
+   <string-array name="window_animation_scale_entries">
+     <item msgid="8134156599370824081">"እነማ ጠፍቷል"</item>
++    <item>"የእነማ ልኬት ለውጥ.25x"</item>
+     <item msgid="6624864048416710414">"የእነማ ልኬት ለውጥ.5x"</item>
++    <item>"የእነማ ልኬት ለውጥ.75x"</item>
+     <item msgid="2219332261255416635">"የእነማ ልኬት ለውጥ1x"</item>
+     <item msgid="3544428804137048509">"የእነማ ልኬት ለውጥ1.5x"</item>
+     <item msgid="3110710404225974514">"የእነማ ልኬት ለውጥ2x"</item>
+@@ -418,7 +420,9 @@
+   </string-array>
+   <string-array name="transition_animation_scale_entries">
+     <item msgid="8464255836173039442">"እነማ ጠፍቷል"</item>
++    <item>"የእነማ ልኬት ለውጥ.25x"</item>
+     <item msgid="3375781541913316411">"የእነማ ልኬት ለውጥ.5x"</item>
++    <item>"የእነማ ልኬት ለውጥ.75x"</item>
+     <item msgid="1991041427801869945">"የእነማ ልኬት ለውጥ1x"</item>
+     <item msgid="4012689927622382874">"የእነማ  ልኬት ለውጥ1.5x"</item>
+     <item msgid="3289156759925947169">"የእነማ ልኬት ለውጥ2x"</item>
+@@ -427,7 +431,9 @@
+   </string-array>
+   <string-array name="animator_duration_scale_entries">
+     <item msgid="6039901060648228241">"እነማ ጠፍቷል"</item>
++    <item>"የእነማ ልኬት ለውጥ .25x"</item>
+     <item msgid="1138649021950863198">"የእነማ ልኬት ለውጥ .5x"</item>
++    <item>"የእነማ ልኬት ለውጥ .75x"</item>
+     <item msgid="4394388961370833040">"የእነማ ልኬት ለውጥ 1x"</item>
+     <item msgid="8125427921655194973">"የእነማ ልኬት ለውጥ 1.5x"</item>
+     <item msgid="3334024790739189573">"የእነማ ልኬት ለውጥ 2x"</item>
+diff --git a/res/values-ar/arrays.xml b/res/values-ar/arrays.xml
+index de81138..010572d 100644
+--- a/res/values-ar/arrays.xml
++++ b/res/values-ar/arrays.xml
+@@ -409,30 +409,36 @@
+   </string-array>
+   <string-array name="window_animation_scale_entries">
+     <item msgid="8134156599370824081">"إيقاف الرسوم المتحركة"</item>
+-    <item msgid="6624864048416710414">"‏حجم الرسوم المتحركة 0.5x"</item>
+-    <item msgid="2219332261255416635">"‏حجم الرسوم المتحركة 1x"</item>
+-    <item msgid="3544428804137048509">"‏حجم الرسوم المتحركة 1.5x"</item>
+-    <item msgid="3110710404225974514">"‏حجم الرسوم المتحركة 2x"</item>
+-    <item msgid="4402738611528318731">"‏حجم الرسوم المتحركة 5x"</item>
+-    <item msgid="6189539267968330656">"‏حجم الرسوم المتحركة 10x"</item>
++    <item>"حجم الرسوم المتحركة 0.25x"</item>
++    <item msgid="6624864048416710414">"حجم الرسوم المتحركة 0.5x"</item>
++    <item>"حجم الرسوم المتحركة 0.75x"</item>
++    <item msgid="2219332261255416635">"حجم الرسوم المتحركة 1x"</item>
++    <item msgid="3544428804137048509">"حجم الرسوم المتحركة 1.5x"</item>
++    <item msgid="3110710404225974514">"حجم الرسوم المتحركة 2x"</item>
++    <item msgid="4402738611528318731">"حجم الرسوم المتحركة 5x"</item>
++    <item msgid="6189539267968330656">"حجم الرسوم المتحركة 10x"</item>
+   </string-array>
+   <string-array name="transition_animation_scale_entries">
+     <item msgid="8464255836173039442">"إيقاف الرسوم المتحركة"</item>
+-    <item msgid="3375781541913316411">"‏حجم الرسوم المتحركة 5x."</item>
+-    <item msgid="1991041427801869945">"‏حجم الرسوم المتحركة 1x"</item>
+-    <item msgid="4012689927622382874">"‏حجم الرسوم المتحركة 1.5x"</item>
+-    <item msgid="3289156759925947169">"‏حجم الرسوم المتحركة 2x"</item>
+-    <item msgid="7705857441213621835">"‏حجم الرسوم المتحركة 5x"</item>
+-    <item msgid="6660750935954853365">"‏حجم الرسوم المتحركة 10x"</item>
++    <item>"حجم الرسوم المتحركة 25x."</item>
++    <item msgid="3375781541913316411">"حجم الرسوم المتحركة 5x."</item>
++    <item>"حجم الرسوم المتحركة 75x."</item>
++    <item msgid="1991041427801869945">"حجم الرسوم المتحركة 1x"</item>
++    <item msgid="4012689927622382874">"حجم الرسوم المتحركة 1.5x"</item>
++    <item msgid="3289156759925947169">"حجم الرسوم المتحركة 2x"</item>
++    <item msgid="7705857441213621835">"حجم الرسوم المتحركة 5x"</item>
++    <item msgid="6660750935954853365">"حجم الرسوم المتحركة 10x"</item>
+   </string-array>
+   <string-array name="animator_duration_scale_entries">
+     <item msgid="6039901060648228241">"إيقاف الرسوم المتحركة"</item>
+-    <item msgid="1138649021950863198">"‏حجم الرسوم المتحركة ‎.5x"</item>
+-    <item msgid="4394388961370833040">"‏حجم الرسوم المتحركة 1x"</item>
+-    <item msgid="8125427921655194973">"‏حجم الرسوم المتحركة 1.5x"</item>
+-    <item msgid="3334024790739189573">"‏حجم الرسوم المتحركة 2x"</item>
+-    <item msgid="3170120558236848008">"‏حجم الرسوم المتحركة 5x"</item>
+-    <item msgid="1069584980746680398">"‏حجم الرسوم المتحركة 10x"</item>
++    <item>"حجم الرسوم المتحركة ‎.25x"</item>
++    <item msgid="1138649021950863198">"حجم الرسوم المتحركة ‎.5x"</item>
++    <item>"حجم الرسوم المتحركة ‎.75x"</item>
++    <item msgid="4394388961370833040">"حجم الرسوم المتحركة 1x"</item>
++    <item msgid="8125427921655194973">"حجم الرسوم المتحركة 1.5x"</item>
++    <item msgid="3334024790739189573">"حجم الرسوم المتحركة 2x"</item>
++    <item msgid="3170120558236848008">"حجم الرسوم المتحركة 5x"</item>
++    <item msgid="1069584980746680398">"حجم الرسوم المتحركة 10x"</item>
+   </string-array>
+   <string-array name="overlay_display_devices_entries">
+     <item msgid="1606809880904982133">"لا شيء"</item>
+diff --git a/res/values-bg/arrays.xml b/res/values-bg/arrays.xml
+index 14f9114..932717e 100644
+--- a/res/values-bg/arrays.xml
++++ b/res/values-bg/arrays.xml
+@@ -409,7 +409,9 @@
+   </string-array>
+   <string-array name="window_animation_scale_entries">
+     <item msgid="8134156599370824081">"Анимацията е изключена"</item>
++    <item>"Скала на анимацията .25x"</item>
+     <item msgid="6624864048416710414">"Скала на анимацията .5x"</item>
++    <item>"Скала на анимацията .75x"</item>
+     <item msgid="2219332261255416635">"Скала на анимацията 1x"</item>
+     <item msgid="3544428804137048509">"Скала на анимацията 1.5x"</item>
+     <item msgid="3110710404225974514">"Скала на анимацията 2x"</item>
+@@ -418,7 +420,9 @@
+   </string-array>
+   <string-array name="transition_animation_scale_entries">
+     <item msgid="8464255836173039442">"Анимацията е изключена"</item>
++    <item>"Скала на анимацията .25x"</item>
+     <item msgid="3375781541913316411">"Скала на анимацията .5x"</item>
++    <item>"Скала на анимацията .75x"</item>
+     <item msgid="1991041427801869945">"Скала на анимацията 1x"</item>
+     <item msgid="4012689927622382874">"Скала на анимацията 1.5x"</item>
+     <item msgid="3289156759925947169">"Скала на анимацията 2x"</item>
+@@ -427,7 +431,9 @@
+   </string-array>
+   <string-array name="animator_duration_scale_entries">
+     <item msgid="6039901060648228241">"Анимацията е изключена"</item>
++    <item>"Скала на анимацията .25x"</item>
+     <item msgid="1138649021950863198">"Скала на анимацията .5x"</item>
++    <item>"Скала на анимацията .75x"</item>
+     <item msgid="4394388961370833040">"Скала на анимацията 1x"</item>
+     <item msgid="8125427921655194973">"Скала на анимацията 1.5x"</item>
+     <item msgid="3334024790739189573">"Скала на анимацията 2x"</item>
+diff --git a/res/values-ca/arrays.xml b/res/values-ca/arrays.xml
+index ad501bc..9ff3500 100644
+--- a/res/values-ca/arrays.xml
++++ b/res/values-ca/arrays.xml
+@@ -409,7 +409,9 @@
+   </string-array>
+   <string-array name="window_animation_scale_entries">
+     <item msgid="8134156599370824081">"Animació desactivada"</item>
++    <item>"Escala d\'animació 0,25x"</item>
+     <item msgid="6624864048416710414">"Escala d\'animació 0,5x"</item>
++    <item>"Escala d\'animació 0,75x"</item>
+     <item msgid="2219332261255416635">"Escala d\'animació 1x"</item>
+     <item msgid="3544428804137048509">"Escala d\'animació 1,5x"</item>
+     <item msgid="3110710404225974514">"Escala d\'animació 2x"</item>
+@@ -418,7 +420,9 @@
+   </string-array>
+   <string-array name="transition_animation_scale_entries">
+     <item msgid="8464255836173039442">"Animació desactivada"</item>
++    <item>"Escala d\'animació 0,25x"</item>
+     <item msgid="3375781541913316411">"Escala d\'animació 0,5x"</item>
++    <item>"Escala d\'animació 0,75x"</item>
+     <item msgid="1991041427801869945">"Escala d\'animació 1x"</item>
+     <item msgid="4012689927622382874">"Escala d\'animació 1,5x"</item>
+     <item msgid="3289156759925947169">"Escala d\'animació 2x"</item>
+@@ -427,7 +431,9 @@
+   </string-array>
+   <string-array name="animator_duration_scale_entries">
+     <item msgid="6039901060648228241">"Animació desactivada"</item>
++    <item>"Escala d\'animació 0,25x"</item>
+     <item msgid="1138649021950863198">"Escala d\'animació 0,5x"</item>
++    <item>"Escala d\'animació 0,75x"</item>
+     <item msgid="4394388961370833040">"Escala d\'animació 1x"</item>
+     <item msgid="8125427921655194973">"Escala d\'animació 1,5x"</item>
+     <item msgid="3334024790739189573">"Animació a escala 2x"</item>
+diff --git a/res/values-cs/arrays.xml b/res/values-cs/arrays.xml
+index 2d7e311..4dbf0c8 100644
+--- a/res/values-cs/arrays.xml
++++ b/res/values-cs/arrays.xml
+@@ -409,7 +409,9 @@
+   </string-array>
+   <string-array name="window_animation_scale_entries">
+     <item msgid="8134156599370824081">"Animace je vypnuta"</item>
++    <item>"Měřítko animace 0,25x"</item>
+     <item msgid="6624864048416710414">"Měřítko animace 0,5x"</item>
++    <item>"Měřítko animace 0,75x"</item>
+     <item msgid="2219332261255416635">"Měřítko animace 1x"</item>
+     <item msgid="3544428804137048509">"Měřítko animace 1,5x"</item>
+     <item msgid="3110710404225974514">"Měřítko animace 2x"</item>
+@@ -418,7 +420,9 @@
+   </string-array>
+   <string-array name="transition_animation_scale_entries">
+     <item msgid="8464255836173039442">"Animace je vypnuta"</item>
++    <item>"Měřítko animace 0,25x"</item>
+     <item msgid="3375781541913316411">"Měřítko animace 0,5x"</item>
++    <item>"Měřítko animace 0,75x"</item>
+     <item msgid="1991041427801869945">"Měřítko animace 1x"</item>
+     <item msgid="4012689927622382874">"Měřítko animace 1,5x"</item>
+     <item msgid="3289156759925947169">"Měřítko animace 2x"</item>
+@@ -427,7 +431,9 @@
+   </string-array>
+   <string-array name="animator_duration_scale_entries">
+     <item msgid="6039901060648228241">"Animace je vypnuta"</item>
++    <item>"Měřítko animace 0,25x"</item>
+     <item msgid="1138649021950863198">"Měřítko animace 0,5x"</item>
++    <item>"Měřítko animace 0,75x"</item>
+     <item msgid="4394388961370833040">"Měřítko animace 1x"</item>
+     <item msgid="8125427921655194973">"Měřítko animace 1,5x"</item>
+     <item msgid="3334024790739189573">"Měřítko animace 2x"</item>
+diff --git a/res/values-da/arrays.xml b/res/values-da/arrays.xml
+index 31ff237..31d3b19 100644
+--- a/res/values-da/arrays.xml
++++ b/res/values-da/arrays.xml
+@@ -409,7 +409,9 @@
+   </string-array>
+   <string-array name="window_animation_scale_entries">
+     <item msgid="8134156599370824081">"Animation fra"</item>
++    <item>"Animationsskala 0,25x"</item>
+     <item msgid="6624864048416710414">"Animationsskala 0,5x"</item>
++    <item>"Animationsskala 0,75x"</item>
+     <item msgid="2219332261255416635">"Animationsskala 1x"</item>
+     <item msgid="3544428804137048509">"Animationsskala 1,5x"</item>
+     <item msgid="3110710404225974514">"Animationsskala 2x"</item>
+@@ -418,7 +420,9 @@
+   </string-array>
+   <string-array name="transition_animation_scale_entries">
+     <item msgid="8464255836173039442">"Animation fra"</item>
++    <item>"Animationsskala 0,25x"</item>
+     <item msgid="3375781541913316411">"Animationsskala 0,5x"</item>
++    <item>"Animationsskala 0,75x"</item>
+     <item msgid="1991041427801869945">"Animationsskala 1x"</item>
+     <item msgid="4012689927622382874">"Animationsskala 1,5x"</item>
+     <item msgid="3289156759925947169">"Animationsskala 2x"</item>
+@@ -427,7 +431,9 @@
+   </string-array>
+   <string-array name="animator_duration_scale_entries">
+     <item msgid="6039901060648228241">"Animation fra"</item>
++    <item>"Animationsskala 0,25x"</item>
+     <item msgid="1138649021950863198">"Animationsskala 0,5x"</item>
++    <item>"Animationsskala 0,75x"</item>
+     <item msgid="4394388961370833040">"Animationsskala 1x"</item>
+     <item msgid="8125427921655194973">"Animationsskala 1,5x"</item>
+     <item msgid="3334024790739189573">"Animationsskala 2x"</item>
+diff --git a/res/values-de/arrays.xml b/res/values-de/arrays.xml
+index 34cd2ce..6b7f7d1 100644
+--- a/res/values-de/arrays.xml
++++ b/res/values-de/arrays.xml
+@@ -409,7 +409,9 @@
+   </string-array>
+   <string-array name="window_animation_scale_entries">
+     <item msgid="8134156599370824081">"Animation aus"</item>
++    <item>"Animationsmaßstab: 0,25x"</item>
+     <item msgid="6624864048416710414">"Animationsmaßstab: 0,5x"</item>
++    <item>"Animationsmaßstab: 0,75x"</item>
+     <item msgid="2219332261255416635">"Animationsmaßstab: 1x"</item>
+     <item msgid="3544428804137048509">"Animationsmaßstab: 1,5x"</item>
+     <item msgid="3110710404225974514">"Animationsmaßstab: 2x"</item>
+@@ -418,7 +420,9 @@
+   </string-array>
+   <string-array name="transition_animation_scale_entries">
+     <item msgid="8464255836173039442">"Animation aus"</item>
++    <item>"Animationsmaßstab: 0,25x"</item>
+     <item msgid="3375781541913316411">"Animationsmaßstab: 0,5x"</item>
++    <item>"Animationsmaßstab: 0,75x"</item>
+     <item msgid="1991041427801869945">"Animationsmaßstab: 1x"</item>
+     <item msgid="4012689927622382874">"Animationsmaßstab: 1,5x"</item>
+     <item msgid="3289156759925947169">"Animationsmaßstab: 2x"</item>
+@@ -427,7 +431,9 @@
+   </string-array>
+   <string-array name="animator_duration_scale_entries">
+     <item msgid="6039901060648228241">"Animation aus"</item>
++    <item>"Animationsmaßstab: 0,25x"</item>
+     <item msgid="1138649021950863198">"Animationsmaßstab: 0,5x"</item>
++    <item>"Animationsmaßstab: 0,75x"</item>
+     <item msgid="4394388961370833040">"Animationsmaßstab: 1x"</item>
+     <item msgid="8125427921655194973">"Animationsmaßstab: 1,5x"</item>
+     <item msgid="3334024790739189573">"Animationsmaßstab: 2x"</item>
+diff --git a/res/values-el/arrays.xml b/res/values-el/arrays.xml
+index 195d048..734457b 100644
+--- a/res/values-el/arrays.xml
++++ b/res/values-el/arrays.xml
+@@ -409,7 +409,9 @@
+   </string-array>
+   <string-array name="window_animation_scale_entries">
+     <item msgid="8134156599370824081">"Κινούμ.εικόνες απενεργοποιημένες"</item>
++    <item>"Κλίμ. κινούμ. εικ. 0,25x"</item>
+     <item msgid="6624864048416710414">"Κλίμ. κινούμ. εικ. 0,5x"</item>
++    <item>"Κλίμ. κινούμ. εικ. 0,75x"</item>
+     <item msgid="2219332261255416635">"Κλίμ. κινούμ. εικ. 1x"</item>
+     <item msgid="3544428804137048509">"Κλίμ. κινούμ. εικ. 1,5x"</item>
+     <item msgid="3110710404225974514">"Κλίμ. κινούμ. εικ. 2x"</item>
+@@ -418,7 +420,9 @@
+   </string-array>
+   <string-array name="transition_animation_scale_entries">
+     <item msgid="8464255836173039442">"Κινούμ.εικόνες απενεργοποιημένες"</item>
++    <item>"Κλίμ. κινούμ. εικ. 0,25x"</item>
+     <item msgid="3375781541913316411">"Κλίμ. κινούμ. εικ. 0,5x"</item>
++    <item>"Κλίμ. κινούμ. εικ. 0,75x"</item>
+     <item msgid="1991041427801869945">"Κλίμ. κινούμ. εικ. 1x"</item>
+     <item msgid="4012689927622382874">"Κλίμ. κινούμ. εικ. 1,5x"</item>
+     <item msgid="3289156759925947169">"Κλίμ. κινούμ. εικ. 2x"</item>
+@@ -427,7 +431,9 @@
+   </string-array>
+   <string-array name="animator_duration_scale_entries">
+     <item msgid="6039901060648228241">"Κινούμ. εικόνες απενεργοποιημένες"</item>
++    <item>"Κλίμ. κινούμ. εικ. 0,25x"</item>
+     <item msgid="1138649021950863198">"Κλίμακα κινούμενων εικόνων 0,5x"</item>
++    <item>"Κλίμ. κινούμ. εικ. 0,75x"</item>
+     <item msgid="4394388961370833040">"Κλίμακα κινούμενων εικόνων 1x"</item>
+     <item msgid="8125427921655194973">"Κλίμακα κινούμενων εικόνων 1,5x"</item>
+     <item msgid="3334024790739189573">"Κλίμακα κινούμενων εικόνων 2x"</item>
+diff --git a/res/values-en-rGB/arrays.xml b/res/values-en-rGB/arrays.xml
+index 3491ad7..fd64891 100644
+--- a/res/values-en-rGB/arrays.xml
++++ b/res/values-en-rGB/arrays.xml
+@@ -409,7 +409,9 @@
+   </string-array>
+   <string-array name="window_animation_scale_entries">
+     <item msgid="8134156599370824081">"Animation off"</item>
++    <item>"Animation scale .25x"</item>
+     <item msgid="6624864048416710414">"Animation scale .5x"</item>
++    <item>"Animation scale .75x"</item>
+     <item msgid="2219332261255416635">"Animation scale 1x"</item>
+     <item msgid="3544428804137048509">"Animation scale 1.5x"</item>
+     <item msgid="3110710404225974514">"Animation scale 2x"</item>
+@@ -418,7 +420,9 @@
+   </string-array>
+   <string-array name="transition_animation_scale_entries">
+     <item msgid="8464255836173039442">"Animation off"</item>
++    <item>"Animation scale .25x"</item>
+     <item msgid="3375781541913316411">"Animation scale .5x"</item>
++    <item>"Animation scale .75x"</item>
+     <item msgid="1991041427801869945">"Animation scale 1x"</item>
+     <item msgid="4012689927622382874">"Animation scale 1.5x"</item>
+     <item msgid="3289156759925947169">"Animation scale 2x"</item>
+@@ -427,7 +431,9 @@
+   </string-array>
+   <string-array name="animator_duration_scale_entries">
+     <item msgid="6039901060648228241">"Animation off"</item>
++    <item>"Animation scale .25x"</item>
+     <item msgid="1138649021950863198">"Animation scale .5x"</item>
++    <item>"Animation scale .75x"</item>
+     <item msgid="4394388961370833040">"Animation scale 1x"</item>
+     <item msgid="8125427921655194973">"Animation scale 1.5x"</item>
+     <item msgid="3334024790739189573">"Animation scale 2x"</item>
+diff --git a/res/values-es-rUS/arrays.xml b/res/values-es-rUS/arrays.xml
+index f0c5445..b5035a4 100644
+--- a/res/values-es-rUS/arrays.xml
++++ b/res/values-es-rUS/arrays.xml
+@@ -409,7 +409,9 @@
+   </string-array>
+   <string-array name="window_animation_scale_entries">
+     <item msgid="8134156599370824081">"Animación desactivada"</item>
++    <item>"Escala de animación 0,25x"</item>
+     <item msgid="6624864048416710414">"Escala de animación .5x"</item>
++    <item>"Escala de animación 0,75x"</item>
+     <item msgid="2219332261255416635">"Escala de animación 1x"</item>
+     <item msgid="3544428804137048509">"Escala de animación 1.5x"</item>
+     <item msgid="3110710404225974514">"Escala de animación 2x"</item>
+@@ -418,7 +420,9 @@
+   </string-array>
+   <string-array name="transition_animation_scale_entries">
+     <item msgid="8464255836173039442">"Animación desactivada"</item>
++    <item>"Escala de animación 0,25x"</item>
+     <item msgid="3375781541913316411">"Escala de animación .5x"</item>
++    <item>"Escala de animación 0,75x"</item>
+     <item msgid="1991041427801869945">"Escala de animación 1x"</item>
+     <item msgid="4012689927622382874">"Escala de animación 1.5x"</item>
+     <item msgid="3289156759925947169">"Escala de animación 2x"</item>
+@@ -427,7 +431,9 @@
+   </string-array>
+   <string-array name="animator_duration_scale_entries">
+     <item msgid="6039901060648228241">"Animación desactivada"</item>
++    <item>"Escala de animación 0,25x"</item>
+     <item msgid="1138649021950863198">"Escala de animación .5x"</item>
++    <item>"Escala de animación 0,75x"</item>
+     <item msgid="4394388961370833040">"Escala de animación 1x"</item>
+     <item msgid="8125427921655194973">"Escala de animación 1.5x"</item>
+     <item msgid="3334024790739189573">"Escala de animación 2x"</item>
+diff --git a/res/values-es/arrays.xml b/res/values-es/arrays.xml
+index 44d63c8..53c3f31 100644
+--- a/res/values-es/arrays.xml
++++ b/res/values-es/arrays.xml
+@@ -409,7 +409,9 @@
+   </string-array>
+   <string-array name="window_animation_scale_entries">
+     <item msgid="8134156599370824081">"Animación desactivada"</item>
++    <item>"Escala de animación 0,25x"</item>
+     <item msgid="6624864048416710414">"Escala de animación 0,5x"</item>
++    <item>"Escala de animación 0,75x"</item>
+     <item msgid="2219332261255416635">"Escala de animación 1x"</item>
+     <item msgid="3544428804137048509">"Escala de animación 1,5x"</item>
+     <item msgid="3110710404225974514">"Escala de animación 2x"</item>
+@@ -418,7 +420,9 @@
+   </string-array>
+   <string-array name="transition_animation_scale_entries">
+     <item msgid="8464255836173039442">"Animación desactivada"</item>
++    <item>"Escala de animación 0,25x"</item>
+     <item msgid="3375781541913316411">"Escala de animación 0,5x"</item>
++    <item>"Escala de animación 0,75x"</item>
+     <item msgid="1991041427801869945">"Escala de animación 1x"</item>
+     <item msgid="4012689927622382874">"Escala de animación 1,5x"</item>
+     <item msgid="3289156759925947169">"Escala de animación 2x"</item>
+@@ -427,7 +431,9 @@
+   </string-array>
+   <string-array name="animator_duration_scale_entries">
+     <item msgid="6039901060648228241">"Animación desactivada"</item>
++    <item>"Escala de animación 0,25x"</item>
+     <item msgid="1138649021950863198">"Escala de animación 0,5x"</item>
++    <item>"Escala de animación 0,75x"</item>
+     <item msgid="4394388961370833040">"Escala de animación 1x"</item>
+     <item msgid="8125427921655194973">"Escala de animación 1,5x"</item>
+     <item msgid="3334024790739189573">"Escala de animación 2x"</item>
+diff --git a/res/values-fa/arrays.xml b/res/values-fa/arrays.xml
+index a5cfce4..d71ccbb 100644
+--- a/res/values-fa/arrays.xml
++++ b/res/values-fa/arrays.xml
+@@ -409,7 +409,9 @@
+   </string-array>
+   <string-array name="window_animation_scale_entries">
+     <item msgid="8134156599370824081">"پویانمایی خاموش"</item>
++    <item>"مقیاس انیمیشن 0.25x"</item>
+     <item msgid="6624864048416710414">"‏مقیاس پویانمایی 0.5x"</item>
++    <item>"مقیاس انیمیشن 0.75x"</item>
+     <item msgid="2219332261255416635">"‏مقیاس پویانمایی 1x"</item>
+     <item msgid="3544428804137048509">"‏مقیاس پویانمایی 1.5x"</item>
+     <item msgid="3110710404225974514">"‏مقیاس پویانمایی 2x"</item>
+@@ -418,7 +420,9 @@
+   </string-array>
+   <string-array name="transition_animation_scale_entries">
+     <item msgid="8464255836173039442">"پویانمایی خاموش"</item>
++    <item>"مقیاس انیمیشن 0.25x"</item>
+     <item msgid="3375781541913316411">"‏مقیاس پویانمایی 0.5x"</item>
++    <item>"مقیاس انیمیشن 0.75x"</item>
+     <item msgid="1991041427801869945">"‏مقیاس پویانمایی 1x"</item>
+     <item msgid="4012689927622382874">"‏مقیاس پویانمایی 1.5x"</item>
+     <item msgid="3289156759925947169">"‏مقیاس پویانمایی 2x"</item>
+@@ -427,7 +431,9 @@
+   </string-array>
+   <string-array name="animator_duration_scale_entries">
+     <item msgid="6039901060648228241">"پویانمایی خاموش"</item>
++    <item>"مقیاس انیمیشن 0.25 برابر"</item>
+     <item msgid="1138649021950863198">"مقیاس پویانمایی 0.5 برابر"</item>
++    <item>"مقیاس انیمیشن 0.75 برابر"</item>
+     <item msgid="4394388961370833040">"مقیاس پویانمایی 1 برابر"</item>
+     <item msgid="8125427921655194973">"مقیاس پویانمایی 1.5 برابر"</item>
+     <item msgid="3334024790739189573">"مقیاس پویانمایی 2 برابر"</item>
+diff --git a/res/values-fi/arrays.xml b/res/values-fi/arrays.xml
+index 4e8ca41..ccbfa8b 100644
+--- a/res/values-fi/arrays.xml
++++ b/res/values-fi/arrays.xml
+@@ -409,7 +409,9 @@
+   </string-array>
+   <string-array name="window_animation_scale_entries">
+     <item msgid="8134156599370824081">"Animaatio pois käytöstä"</item>
++    <item>"Animaation mittakaava 0,25-kertainen"</item>
+     <item msgid="6624864048416710414">"Animaation mittakaava 0,5-kertainen"</item>
++    <item>"Animaation mittakaava 0,75-kertainen"</item>
+     <item msgid="2219332261255416635">"Animaation mittakaava 1-kertainen"</item>
+     <item msgid="3544428804137048509">"Animaation mittakaava 1,5-kertainen"</item>
+     <item msgid="3110710404225974514">"Animaation mittakaava 2-kertainen"</item>
+@@ -418,7 +420,9 @@
+   </string-array>
+   <string-array name="transition_animation_scale_entries">
+     <item msgid="8464255836173039442">"Animaatio pois käytöstä"</item>
++    <item>"Animaation mittakaava 0,25-kertainen"</item>
+     <item msgid="3375781541913316411">"Animaation mittakaava 0,5-kertainen"</item>
++    <item>"Animaation mittakaava 0,75-kertainen"</item>
+     <item msgid="1991041427801869945">"Animaation mittakaava 1-kertainen"</item>
+     <item msgid="4012689927622382874">"Animaation mittakaava 0,5-kertainen"</item>
+     <item msgid="3289156759925947169">"Animaation mittakaava 2-kertainen"</item>
+@@ -427,7 +431,9 @@
+   </string-array>
+   <string-array name="animator_duration_scale_entries">
+     <item msgid="6039901060648228241">"Animaatio pois käytöstä"</item>
++    <item>"Animaation mittakaava 0,25-kertainen"</item>
+     <item msgid="1138649021950863198">"Animaation mittakaava 0,5-kertainen"</item>
++    <item>"Animaation mittakaava 0,75-kertainen"</item>
+     <item msgid="4394388961370833040">"Animaation mittakaava 1-kertainen"</item>
+     <item msgid="8125427921655194973">"Animaation mittakaava 1,5-kertainen"</item>
+     <item msgid="3334024790739189573">"Animaation mittakaava 2-kertainen"</item>
+diff --git a/res/values-fr/arrays.xml b/res/values-fr/arrays.xml
+index 9a8811f..d703ea8 100644
+--- a/res/values-fr/arrays.xml
++++ b/res/values-fr/arrays.xml
+@@ -409,7 +409,9 @@
+   </string-array>
+   <string-array name="window_animation_scale_entries">
+     <item msgid="8134156599370824081">"Animation désactivée"</item>
++    <item>"Échelle d\'animation 0,25x"</item>
+     <item msgid="6624864048416710414">"Échelle d\'animation 0,5x"</item>
++    <item>"Échelle d\'animation 0,75x"</item>
+     <item msgid="2219332261255416635">"Échelle d\'animation 1x"</item>
+     <item msgid="3544428804137048509">"Échelle d\'animation 1,5x"</item>
+     <item msgid="3110710404225974514">"Échelle d\'animation 2x"</item>
+@@ -418,7 +420,9 @@
+   </string-array>
+   <string-array name="transition_animation_scale_entries">
+     <item msgid="8464255836173039442">"Animation désactivée"</item>
++    <item>"Échelle d\'animation 0,25x"</item>
+     <item msgid="3375781541913316411">"Échelle d\'animation 0,5x"</item>
++    <item>"Échelle d\'animation 0,75x"</item>
+     <item msgid="1991041427801869945">"Échelle d\'animation 1x"</item>
+     <item msgid="4012689927622382874">"Échelle d\'animation 1,5x"</item>
+     <item msgid="3289156759925947169">"Échelle d\'animation 2x"</item>
+@@ -427,7 +431,9 @@
+   </string-array>
+   <string-array name="animator_duration_scale_entries">
+     <item msgid="6039901060648228241">"Animation désactivée"</item>
++    <item>"Échelle d\'animation 0,25x"</item>
+     <item msgid="1138649021950863198">"Échelle d\'animation 0,5x"</item>
++    <item>"Échelle d\'animation 0,75x"</item>
+     <item msgid="4394388961370833040">"Échelle d\'animation 1x"</item>
+     <item msgid="8125427921655194973">"Échelle d\'animation 1,5x"</item>
+     <item msgid="3334024790739189573">"Échelle d\'animation 2x"</item>
+diff --git a/res/values-hi/arrays.xml b/res/values-hi/arrays.xml
+index 57cb420..b1ce617 100644
+--- a/res/values-hi/arrays.xml
++++ b/res/values-hi/arrays.xml
+@@ -409,7 +409,9 @@
+   </string-array>
+   <string-array name="window_animation_scale_entries">
+     <item msgid="8134156599370824081">"एनिमेशन बंद"</item>
++    <item>"एनिमेशन स्‍केल .25x"</item>
+     <item msgid="6624864048416710414">"एनिमेशन स्‍केल .5x"</item>
++    <item>"एनिमेशन स्‍केल .75x"</item>
+     <item msgid="2219332261255416635">"एनिमेशन स्‍केल 1x"</item>
+     <item msgid="3544428804137048509">"एनिमेशन स्‍केल 1.5x"</item>
+     <item msgid="3110710404225974514">"एनिमेशन स्‍केल 2x"</item>
+@@ -418,7 +420,9 @@
+   </string-array>
+   <string-array name="transition_animation_scale_entries">
+     <item msgid="8464255836173039442">"एनिमेशन बंद"</item>
++    <item>"एनिमेशन स्‍केल .25x"</item>
+     <item msgid="3375781541913316411">"एनिमेशन स्‍केल .5x"</item>
++    <item>"एनिमेशन स्‍केल .75x"</item>
+     <item msgid="1991041427801869945">"एनिमेशन स्‍केल 1x"</item>
+     <item msgid="4012689927622382874">"एनिमेशन स्‍केल 1.5x"</item>
+     <item msgid="3289156759925947169">"एनिमेशन स्‍केल 2x"</item>
+@@ -427,7 +431,9 @@
+   </string-array>
+   <string-array name="animator_duration_scale_entries">
+     <item msgid="6039901060648228241">"एनिमेशन बंद"</item>
++    <item>"एनिमेशन स्‍केल .25x"</item>
+     <item msgid="1138649021950863198">"एनिमेशन स्‍केल .5x"</item>
++    <item>"एनिमेशन स्‍केल .75x"</item>
+     <item msgid="4394388961370833040">"एनिमेशन स्‍केल 1x"</item>
+     <item msgid="8125427921655194973">"एनिमेशन स्‍केल 1.5x"</item>
+     <item msgid="3334024790739189573">"एनिमेशन स्‍केल 2x"</item>
+diff --git a/res/values-hr/arrays.xml b/res/values-hr/arrays.xml
+index fbbf535..25fe675 100644
+--- a/res/values-hr/arrays.xml
++++ b/res/values-hr/arrays.xml
+@@ -409,7 +409,9 @@
+   </string-array>
+   <string-array name="window_animation_scale_entries">
+     <item msgid="8134156599370824081">"Animacija isključena"</item>
++    <item>"Animacija razmjera 0,25 x"</item>
+     <item msgid="6624864048416710414">"Animacija razmjera 0,5 x"</item>
++    <item>"Animacija razmjera 0,75 x"</item>
+     <item msgid="2219332261255416635">"Animacija razmjera 1x"</item>
+     <item msgid="3544428804137048509">"Animacija razmjera 1,5 x"</item>
+     <item msgid="3110710404225974514">"Animacija razmjera 2x"</item>
+@@ -418,7 +420,9 @@
+   </string-array>
+   <string-array name="transition_animation_scale_entries">
+     <item msgid="8464255836173039442">"Animacija isključena"</item>
++    <item>"Animacija razmjera 0,25 x"</item>
+     <item msgid="3375781541913316411">"Animacija razmjera 0,5 x"</item>
++    <item>"Animacija razmjera 0,75 x"</item>
+     <item msgid="1991041427801869945">"Animacija razmjera 1x"</item>
+     <item msgid="4012689927622382874">"Animacija razmjera 1,5 x"</item>
+     <item msgid="3289156759925947169">"Animacija razmjera 2x"</item>
+@@ -427,7 +431,9 @@
+   </string-array>
+   <string-array name="animator_duration_scale_entries">
+     <item msgid="6039901060648228241">"Animacija isključena"</item>
++    <item>"Animacija razmjera 0,25 x"</item>
+     <item msgid="1138649021950863198">"Animacija razmjera 0,5 x"</item>
++    <item>"Animacija razmjera 0,75 x"</item>
+     <item msgid="4394388961370833040">"Animacija razmjera 1 x"</item>
+     <item msgid="8125427921655194973">"Animacija razmjera 1,5 x"</item>
+     <item msgid="3334024790739189573">"Animacija razmjera 2 x"</item>
+diff --git a/res/values-hu/arrays.xml b/res/values-hu/arrays.xml
+index a158ca4..34a1161 100644
+--- a/res/values-hu/arrays.xml
++++ b/res/values-hu/arrays.xml
+@@ -409,7 +409,9 @@
+   </string-array>
+   <string-array name="window_animation_scale_entries">
+     <item msgid="8134156599370824081">"Animáció ki"</item>
++    <item>"Animáció mérete: 0,25x"</item>
+     <item msgid="6624864048416710414">"Animáció mérete: 0,5x"</item>
++    <item>"Animáció mérete: 0,75x"</item>
+     <item msgid="2219332261255416635">"Animáció mérete: 1x"</item>
+     <item msgid="3544428804137048509">"Animáció mérete: 1,5x"</item>
+     <item msgid="3110710404225974514">"Animáció mérete: 2x"</item>
+@@ -418,7 +420,9 @@
+   </string-array>
+   <string-array name="transition_animation_scale_entries">
+     <item msgid="8464255836173039442">"Animáció ki"</item>
++    <item>"Animáció mérete: 0,25x"</item>
+     <item msgid="3375781541913316411">"Animáció mérete: 0,5x"</item>
++    <item>"Animáció mérete: 0,75x"</item>
+     <item msgid="1991041427801869945">"Animáció mérete: 1x"</item>
+     <item msgid="4012689927622382874">"Animáció mérete: 1,5x"</item>
+     <item msgid="3289156759925947169">"Animáció mérete: 2x"</item>
+@@ -427,7 +431,9 @@
+   </string-array>
+   <string-array name="animator_duration_scale_entries">
+     <item msgid="6039901060648228241">"Animáció ki"</item>
++    <item>"Animáció léptéke: 0,25x"</item>
+     <item msgid="1138649021950863198">"Animáció léptéke: 0,5x"</item>
++    <item>"Animáció léptéke: 0,75x"</item>
+     <item msgid="4394388961370833040">"Animáció léptéke: 1x"</item>
+     <item msgid="8125427921655194973">"Animáció léptéke: 1,5x"</item>
+     <item msgid="3334024790739189573">"Animáció léptéke: 2x"</item>
+diff --git a/res/values-in/arrays.xml b/res/values-in/arrays.xml
+index ed06375..27f8c19 100644
+--- a/res/values-in/arrays.xml
++++ b/res/values-in/arrays.xml
+@@ -409,7 +409,9 @@
+   </string-array>
+   <string-array name="window_animation_scale_entries">
+     <item msgid="8134156599370824081">"Animasi mati"</item>
++    <item>"Skala animasi 0,25x"</item>
+     <item msgid="6624864048416710414">"Skala animasi 0,5x"</item>
++    <item>"Skala animasi 0,75x"</item>
+     <item msgid="2219332261255416635">"Skala animasi 1x"</item>
+     <item msgid="3544428804137048509">"Skala animasi 1,5x"</item>
+     <item msgid="3110710404225974514">"Skala animasi 2x"</item>
+@@ -418,7 +420,9 @@
+   </string-array>
+   <string-array name="transition_animation_scale_entries">
+     <item msgid="8464255836173039442">"Animasi mati"</item>
++    <item>"Skala animasi 0,25x"</item>
+     <item msgid="3375781541913316411">"Skala animasi 0,5x"</item>
++    <item>"Skala animasi 0,75x"</item>
+     <item msgid="1991041427801869945">"Skala animasi 1x"</item>
+     <item msgid="4012689927622382874">"Skala animasi 1,5x"</item>
+     <item msgid="3289156759925947169">"Skala animasi 2x"</item>
+@@ -427,7 +431,9 @@
+   </string-array>
+   <string-array name="animator_duration_scale_entries">
+     <item msgid="6039901060648228241">"Animasi mati"</item>
++    <item>"Skala animasi 0,25x"</item>
+     <item msgid="1138649021950863198">"Skala animasi 0,5x"</item>
++    <item>"Skala animasi 0,75x"</item>
+     <item msgid="4394388961370833040">"Skala animasi 1x"</item>
+     <item msgid="8125427921655194973">"Skala animasi 1,5x"</item>
+     <item msgid="3334024790739189573">"Skala animasi 2x"</item>
+diff --git a/res/values-it/arrays.xml b/res/values-it/arrays.xml
+index bf4ae9d..19c5ee0 100644
+--- a/res/values-it/arrays.xml
++++ b/res/values-it/arrays.xml
+@@ -409,7 +409,9 @@
+   </string-array>
+   <string-array name="window_animation_scale_entries">
+     <item msgid="8134156599370824081">"Animazione disattivata"</item>
++    <item>"Scala animazione 0,25x"</item>
+     <item msgid="6624864048416710414">"Scala animazione 0,5x"</item>
++    <item>"Scala animazione 0,75x"</item>
+     <item msgid="2219332261255416635">"Scala animazione 1x"</item>
+     <item msgid="3544428804137048509">"Scala animazione 1,5x"</item>
+     <item msgid="3110710404225974514">"Scala animazione 2x"</item>
+@@ -418,7 +420,9 @@
+   </string-array>
+   <string-array name="transition_animation_scale_entries">
+     <item msgid="8464255836173039442">"Animazione disattivata"</item>
++    <item>"Scala animazione 0,25x"</item>
+     <item msgid="3375781541913316411">"Scala animazione 0,5x"</item>
++    <item>"Scala animazione 0,75x"</item>
+     <item msgid="1991041427801869945">"Scala animazione 1x"</item>
+     <item msgid="4012689927622382874">"Scala animazione 1,5x"</item>
+     <item msgid="3289156759925947169">"Scala animazione 2x"</item>
+@@ -427,7 +431,9 @@
+   </string-array>
+   <string-array name="animator_duration_scale_entries">
+     <item msgid="6039901060648228241">"Animazione disattivata"</item>
++    <item>"Scala animazione 0,25x"</item>
+     <item msgid="1138649021950863198">"Scala animazione 0,5x"</item>
++    <item>"Scala animazione 0,75x"</item>
+     <item msgid="4394388961370833040">"Scala animazione 1x"</item>
+     <item msgid="8125427921655194973">"Scala animazione 1,5x"</item>
+     <item msgid="3334024790739189573">"Scala animazione 2x"</item>
+diff --git a/res/values-iw/arrays.xml b/res/values-iw/arrays.xml
+index de3f45d..bc578da 100644
+--- a/res/values-iw/arrays.xml
++++ b/res/values-iw/arrays.xml
+@@ -409,30 +409,36 @@
+   </string-array>
+   <string-array name="window_animation_scale_entries">
+     <item msgid="8134156599370824081">"הנפשה כבויה"</item>
+-    <item msgid="6624864048416710414">"‏קנה מידה להנפשה 5x."</item>
+-    <item msgid="2219332261255416635">"‏קנה מידה להנפשה 1x"</item>
+-    <item msgid="3544428804137048509">"‏קנה מידה להנפשה 1.5x"</item>
+-    <item msgid="3110710404225974514">"‏קנה מידה להנפשה 2x"</item>
+-    <item msgid="4402738611528318731">"‏קנה מידה להנפשה 5x"</item>
+-    <item msgid="6189539267968330656">"‏קנה מידה להנפשה 10x"</item>
++    <item>"קנה מידה להנפשה 25x."</item>
++    <item msgid="6624864048416710414">"קנה מידה להנפשה 5x."</item>
++    <item>"קנה מידה להנפשה 75x."</item>
++    <item msgid="2219332261255416635">"קנה מידה להנפשה 1x"</item>
++    <item msgid="3544428804137048509">"קנה מידה להנפשה 1.5x"</item>
++    <item msgid="3110710404225974514">"קנה מידה להנפשה 2x"</item>
++    <item msgid="4402738611528318731">"קנה מידה להנפשה 5x"</item>
++    <item msgid="6189539267968330656">"קנה מידה להנפשה 10x"</item>
+   </string-array>
+   <string-array name="transition_animation_scale_entries">
+     <item msgid="8464255836173039442">"הנפשה כבויה"</item>
+-    <item msgid="3375781541913316411">"‏קנה מידה להנפשה 5x."</item>
+-    <item msgid="1991041427801869945">"‏קנה מידה להנפשה 1x"</item>
+-    <item msgid="4012689927622382874">"‏קנה מידה להנפשה 1.5x"</item>
+-    <item msgid="3289156759925947169">"‏קנה מידה להנפשה 2x"</item>
+-    <item msgid="7705857441213621835">"‏קנה מידה להנפשה 5x"</item>
+-    <item msgid="6660750935954853365">"‏קנה מידה להנפשה 10x"</item>
++    <item>"קנה מידה להנפשה 25x."</item>
++    <item msgid="3375781541913316411">"קנה מידה להנפשה 5x."</item>
++    <item>"קנה מידה להנפשה 75x."</item>
++    <item msgid="1991041427801869945">"קנה מידה להנפשה 1x"</item>
++    <item msgid="4012689927622382874">"קנה מידה להנפשה 1.5x"</item>
++    <item msgid="3289156759925947169">"קנה מידה להנפשה 2x"</item>
++    <item msgid="7705857441213621835">"קנה מידה להנפשה 5x"</item>
++    <item msgid="6660750935954853365">"קנה מידה להנפשה 10x"</item>
+   </string-array>
+   <string-array name="animator_duration_scale_entries">
+     <item msgid="6039901060648228241">"הנפשה כבויה"</item>
+-    <item msgid="1138649021950863198">"‏קנה מידה להנפשה 5x."</item>
+-    <item msgid="4394388961370833040">"‏קנה מידה להנפשה 1x"</item>
+-    <item msgid="8125427921655194973">"‏קנה מידה להנפשה 1.5x"</item>
+-    <item msgid="3334024790739189573">"‏קנה מידה להנפשה 2x"</item>
+-    <item msgid="3170120558236848008">"‏קנה מידה להנפשה 5x"</item>
+-    <item msgid="1069584980746680398">"‏קנה מידה להנפשה 10x"</item>
++    <item>"קנה מידה להנפשה 25x."</item>
++    <item msgid="1138649021950863198">"קנה מידה להנפשה 5x."</item>
++    <item>"קנה מידה להנפשה 75x."</item>
++    <item msgid="4394388961370833040">"קנה מידה להנפשה 1x"</item>
++    <item msgid="8125427921655194973">"קנה מידה להנפשה 1.5x"</item>
++    <item msgid="3334024790739189573">"קנה מידה להנפשה 2x"</item>
++    <item msgid="3170120558236848008">"קנה מידה להנפשה 5x"</item>
++    <item msgid="1069584980746680398">"קנה מידה להנפשה 10x"</item>
+   </string-array>
+   <string-array name="overlay_display_devices_entries">
+     <item msgid="1606809880904982133">"אין"</item>
+diff --git a/res/values-ja/arrays.xml b/res/values-ja/arrays.xml
+index cac7959..b21330d 100644
+--- a/res/values-ja/arrays.xml
++++ b/res/values-ja/arrays.xml
+@@ -409,7 +409,9 @@
+   </string-array>
+   <string-array name="window_animation_scale_entries">
+     <item msgid="8134156599370824081">"アニメーションオフ"</item>
++    <item>"アニメーションスケール.25x"</item>
+     <item msgid="6624864048416710414">"アニメーションスケール.5x"</item>
++    <item>"アニメーションスケール.75x"</item>
+     <item msgid="2219332261255416635">"アニメーションスケール1x"</item>
+     <item msgid="3544428804137048509">"アニメーションスケール1.5x"</item>
+     <item msgid="3110710404225974514">"アニメーションスケール2x"</item>
+@@ -418,7 +420,9 @@
+   </string-array>
+   <string-array name="transition_animation_scale_entries">
+     <item msgid="8464255836173039442">"アニメーションオフ"</item>
++    <item>"アニメーションスケール.25x"</item>
+     <item msgid="3375781541913316411">"アニメーションスケール.5x"</item>
++    <item>"アニメーションスケール.75x"</item>
+     <item msgid="1991041427801869945">"アニメーションスケール1x"</item>
+     <item msgid="4012689927622382874">"アニメーションスケール1.5x"</item>
+     <item msgid="3289156759925947169">"アニメーションスケール2x"</item>
+@@ -427,7 +431,9 @@
+   </string-array>
+   <string-array name="animator_duration_scale_entries">
+     <item msgid="6039901060648228241">"アニメーションオフ"</item>
++    <item>"アニメーションスケール.25x"</item>
+     <item msgid="1138649021950863198">"アニメーションスケール.5x"</item>
++    <item>"アニメーションスケール.75x"</item>
+     <item msgid="4394388961370833040">"アニメーションスケール1x"</item>
+     <item msgid="8125427921655194973">"アニメーションスケール1.5x"</item>
+     <item msgid="3334024790739189573">"アニメーションスケール2x"</item>
+diff --git a/res/values-ko/arrays.xml b/res/values-ko/arrays.xml
+index b962bf2..2680c38 100644
+--- a/res/values-ko/arrays.xml
++++ b/res/values-ko/arrays.xml
+@@ -409,7 +409,9 @@
+   </string-array>
+   <string-array name="window_animation_scale_entries">
+     <item msgid="8134156599370824081">"애니메이션 사용 안함"</item>
++    <item>"애니메이션 배율 .25x"</item>
+     <item msgid="6624864048416710414">"애니메이션 배율 .5x"</item>
++    <item>"애니메이션 배율 .75x"</item>
+     <item msgid="2219332261255416635">"애니메이션 배율 1x"</item>
+     <item msgid="3544428804137048509">"애니메이션 배율 1.5x"</item>
+     <item msgid="3110710404225974514">"애니메이션 배율 2x"</item>
+@@ -418,7 +420,9 @@
+   </string-array>
+   <string-array name="transition_animation_scale_entries">
+     <item msgid="8464255836173039442">"애니메이션 사용 안함"</item>
++    <item>"애니메이션 배율 .25x"</item>
+     <item msgid="3375781541913316411">"애니메이션 배율 .5x"</item>
++    <item>"애니메이션 배율 .75x"</item>
+     <item msgid="1991041427801869945">"애니메이션 배율 1x"</item>
+     <item msgid="4012689927622382874">"애니메이션 배율 1.5x"</item>
+     <item msgid="3289156759925947169">"애니메이션 배율 2x"</item>
+@@ -427,7 +431,9 @@
+   </string-array>
+   <string-array name="animator_duration_scale_entries">
+     <item msgid="6039901060648228241">"애니메이션 사용 안함"</item>
++    <item>"애니메이션 배율 .25x"</item>
+     <item msgid="1138649021950863198">"애니메이션 배율 .5x"</item>
++    <item>"애니메이션 배율 .75x"</item>
+     <item msgid="4394388961370833040">"애니메이션 배율 1x"</item>
+     <item msgid="8125427921655194973">"애니메이션 배율 1.5x"</item>
+     <item msgid="3334024790739189573">"애니메이션 배율 2x"</item>
+diff --git a/res/values-lt/arrays.xml b/res/values-lt/arrays.xml
+index 7614636..db8be98 100644
+--- a/res/values-lt/arrays.xml
++++ b/res/values-lt/arrays.xml
+@@ -409,7 +409,9 @@
+   </string-array>
+   <string-array name="window_animation_scale_entries">
+     <item msgid="8134156599370824081">"Animacija išjungta"</item>
++    <item>"Animacijos mastelis 0,25x"</item>
+     <item msgid="6624864048416710414">"Animacijos mastelis 0,5x"</item>
++    <item>"Animacijos mastelis 0,75x"</item>
+     <item msgid="2219332261255416635">"Animacijos mastelis 1x"</item>
+     <item msgid="3544428804137048509">"Animacijos mastelis 1,5x"</item>
+     <item msgid="3110710404225974514">"Animacijos mastelis 2x"</item>
+@@ -418,7 +420,9 @@
+   </string-array>
+   <string-array name="transition_animation_scale_entries">
+     <item msgid="8464255836173039442">"Animacija išjungta"</item>
++    <item>"Animacijos mastelis 0,25x"</item>
+     <item msgid="3375781541913316411">"Animacijos mastelis 0,5x"</item>
++    <item>"Animacijos mastelis 0,75x"</item>
+     <item msgid="1991041427801869945">"Animacijos mastelis 1x"</item>
+     <item msgid="4012689927622382874">"Animacijos mastelis 1,5x"</item>
+     <item msgid="3289156759925947169">"Animacijos mastelis 2x"</item>
+@@ -427,7 +431,9 @@
+   </string-array>
+   <string-array name="animator_duration_scale_entries">
+     <item msgid="6039901060648228241">"Animacija išjungta"</item>
++    <item>"Animacijos mastelis 0,25x"</item>
+     <item msgid="1138649021950863198">"Animacijos mastelis 0,5 x"</item>
++    <item>"Animacijos mastelis 0,75x"</item>
+     <item msgid="4394388961370833040">"Animacijos mastelis 1 x"</item>
+     <item msgid="8125427921655194973">"Animacijos mastelis 1,5 x"</item>
+     <item msgid="3334024790739189573">"Animacijos mastelis 2 x"</item>
+diff --git a/res/values-lv/arrays.xml b/res/values-lv/arrays.xml
+index 5f75f6a..b3f165b 100644
+--- a/res/values-lv/arrays.xml
++++ b/res/values-lv/arrays.xml
+@@ -409,7 +409,9 @@
+   </string-array>
+   <string-array name="window_animation_scale_entries">
+     <item msgid="8134156599370824081">"Animācija ir izslēgta"</item>
++    <item>"Animācijas mērogs: 0,25x"</item>
+     <item msgid="6624864048416710414">"Animācijas mērogs: 0,5x"</item>
++    <item>"Animācijas mērogs: 0,75x"</item>
+     <item msgid="2219332261255416635">"Animācijas mērogs: 1x"</item>
+     <item msgid="3544428804137048509">"Animācijas mērogs: 1,5x"</item>
+     <item msgid="3110710404225974514">"Animācijas mērogs: 2x"</item>
+@@ -418,7 +420,9 @@
+   </string-array>
+   <string-array name="transition_animation_scale_entries">
+     <item msgid="8464255836173039442">"Animācija ir izslēgta"</item>
++    <item>"Animācijas mērogs: 0,25x"</item>
+     <item msgid="3375781541913316411">"Animācijas mērogs: 0,5x"</item>
++    <item>"Animācijas mērogs: 0,75x"</item>
+     <item msgid="1991041427801869945">"Animācijas mērogs: 1x"</item>
+     <item msgid="4012689927622382874">"Animācijas mērogs: 1,5x"</item>
+     <item msgid="3289156759925947169">"Animācijas mērogs: 2x"</item>
+@@ -427,7 +431,9 @@
+   </string-array>
+   <string-array name="animator_duration_scale_entries">
+     <item msgid="6039901060648228241">"Animācija izslēgta"</item>
++    <item>"Animācijas mērogs: 0,25x"</item>
+     <item msgid="1138649021950863198">"Animācijas mērogs: 0,5x"</item>
++    <item>"Animācijas mērogs: 0,75x"</item>
+     <item msgid="4394388961370833040">"Animācijas mērogs: 1x"</item>
+     <item msgid="8125427921655194973">"Animācijas mērogs: 1,5x"</item>
+     <item msgid="3334024790739189573">"Animācijas mērogs: 2x"</item>
+diff --git a/res/values-nb/arrays.xml b/res/values-nb/arrays.xml
+index 9c174ec..8d0ac47 100644
+--- a/res/values-nb/arrays.xml
++++ b/res/values-nb/arrays.xml
+@@ -409,7 +409,9 @@
+   </string-array>
+   <string-array name="window_animation_scale_entries">
+     <item msgid="8134156599370824081">"Animasjon deaktivert"</item>
++    <item>"Animasjonsskala 0,25 x"</item>
+     <item msgid="6624864048416710414">"Animasjonsskala 0,5 x"</item>
++    <item>"Animasjonsskala 0,75 x"</item>
+     <item msgid="2219332261255416635">"Animasjonsskala 1 x"</item>
+     <item msgid="3544428804137048509">"Animasjonsskala 1,5 x"</item>
+     <item msgid="3110710404225974514">"Animasjonsskala 2 x"</item>
+@@ -418,7 +420,9 @@
+   </string-array>
+   <string-array name="transition_animation_scale_entries">
+     <item msgid="8464255836173039442">"Animasjon deaktivert"</item>
++    <item>"Animasjonsskala 0,25 x"</item>
+     <item msgid="3375781541913316411">"Animasjonsskala 0,5 x"</item>
++    <item>"Animasjonsskala 0,75 x"</item>
+     <item msgid="1991041427801869945">"Animasjonsskala 1 x"</item>
+     <item msgid="4012689927622382874">"Animasjonsskala 1,5 x"</item>
+     <item msgid="3289156759925947169">"Animasjonsskala 2 x"</item>
+@@ -427,7 +431,9 @@
+   </string-array>
+   <string-array name="animator_duration_scale_entries">
+     <item msgid="6039901060648228241">"Animasjon deaktivert"</item>
++    <item>"Animasjonsskala 0,25 x"</item>
+     <item msgid="1138649021950863198">"Animasjonsskala 0,5 x"</item>
++    <item>"Animasjonsskala 0,75 x"</item>
+     <item msgid="4394388961370833040">"Animasjonsskala 1 x"</item>
+     <item msgid="8125427921655194973">"Animasjonsskala 1,5 x"</item>
+     <item msgid="3334024790739189573">"Animasjonsskala 2 x"</item>
+diff --git a/res/values-nl/arrays.xml b/res/values-nl/arrays.xml
+index 6303425..dcc52c6 100644
+--- a/res/values-nl/arrays.xml
++++ b/res/values-nl/arrays.xml
+@@ -409,7 +409,9 @@
+   </string-array>
+   <string-array name="window_animation_scale_entries">
+     <item msgid="8134156599370824081">"Animatie uit"</item>
++    <item>"Animatieschaal 0,25x"</item>
+     <item msgid="6624864048416710414">"Animatieschaal 0,5x"</item>
++    <item>"Animatieschaal 0,75x"</item>
+     <item msgid="2219332261255416635">"Animatieschaal 1x"</item>
+     <item msgid="3544428804137048509">"Animatieschaal 1,5x"</item>
+     <item msgid="3110710404225974514">"Animatieschaal 2x"</item>
+@@ -418,7 +420,9 @@
+   </string-array>
+   <string-array name="transition_animation_scale_entries">
+     <item msgid="8464255836173039442">"Animatie uit"</item>
++    <item>"Animatieschaal 0,25x"</item>
+     <item msgid="3375781541913316411">"Animatieschaal 0,5x"</item>
++    <item>"Animatieschaal 0,75x"</item>
+     <item msgid="1991041427801869945">"Animatieschaal 1x"</item>
+     <item msgid="4012689927622382874">"Animatieschaal 1,5x"</item>
+     <item msgid="3289156759925947169">"Animatieschaal 2x"</item>
+@@ -427,7 +431,9 @@
+   </string-array>
+   <string-array name="animator_duration_scale_entries">
+     <item msgid="6039901060648228241">"Animatie uit"</item>
++    <item>"Animatieschaal 0,25x"</item>
+     <item msgid="1138649021950863198">"Animatieschaal 0,5x"</item>
++    <item>"Animatieschaal 0,75x"</item>
+     <item msgid="4394388961370833040">"Animatieschaal 1x"</item>
+     <item msgid="8125427921655194973">"Animatieschaal 1,5x"</item>
+     <item msgid="3334024790739189573">"Animatieschaal 2x"</item>
+diff --git a/res/values-pl/arrays.xml b/res/values-pl/arrays.xml
+index 0e6fe8b..3ff7b85 100644
+--- a/res/values-pl/arrays.xml
++++ b/res/values-pl/arrays.xml
+@@ -409,7 +409,9 @@
+   </string-array>
+   <string-array name="window_animation_scale_entries">
+     <item msgid="8134156599370824081">"Animacja wyłączona"</item>
++    <item>"Skala animacji 0,25x"</item>
+     <item msgid="6624864048416710414">"Skala animacji 0,5x"</item>
++    <item>"Skala animacji 0,75x"</item>
+     <item msgid="2219332261255416635">"Skala animacji 1x"</item>
+     <item msgid="3544428804137048509">"Skala animacji 1,5x"</item>
+     <item msgid="3110710404225974514">"Skala animacji 2x"</item>
+@@ -418,7 +420,9 @@
+   </string-array>
+   <string-array name="transition_animation_scale_entries">
+     <item msgid="8464255836173039442">"Animacja wyłączona"</item>
++    <item>"Skala animacji 0,25x"</item>
+     <item msgid="3375781541913316411">"Skala animacji 0,5x"</item>
++    <item>"Skala animacji 0,75x"</item>
+     <item msgid="1991041427801869945">"Skala animacji 1x"</item>
+     <item msgid="4012689927622382874">"Skala animacji 1,5x"</item>
+     <item msgid="3289156759925947169">"Skala animacji 2x"</item>
+@@ -427,7 +431,9 @@
+   </string-array>
+   <string-array name="animator_duration_scale_entries">
+     <item msgid="6039901060648228241">"Animacja wyłączona"</item>
++    <item>"Skala animacji 0,25x"</item>
+     <item msgid="1138649021950863198">"Skala animacji 0,5x"</item>
++    <item>"Skala animacji 0,75x"</item>
+     <item msgid="4394388961370833040">"Skala animacji 1x"</item>
+     <item msgid="8125427921655194973">"Skala animacji 1,5x"</item>
+     <item msgid="3334024790739189573">"Skala animacji 2x"</item>
+diff --git a/res/values-pt-rPT/arrays.xml b/res/values-pt-rPT/arrays.xml
+index da8f603..71b2100 100644
+--- a/res/values-pt-rPT/arrays.xml
++++ b/res/values-pt-rPT/arrays.xml
+@@ -409,7 +409,9 @@
+   </string-array>
+   <string-array name="window_animation_scale_entries">
+     <item msgid="8134156599370824081">"Animação desativada"</item>
++    <item>"Escala da animação 0,25x"</item>
+     <item msgid="6624864048416710414">"Escala de animação 0,5x"</item>
++    <item>"Escala da animação 0,75x"</item>
+     <item msgid="2219332261255416635">"Escala de animação 1x"</item>
+     <item msgid="3544428804137048509">"Escala de animação 1,5x"</item>
+     <item msgid="3110710404225974514">"Escala de animação 2x"</item>
+@@ -418,7 +420,9 @@
+   </string-array>
+   <string-array name="transition_animation_scale_entries">
+     <item msgid="8464255836173039442">"Animação desativada"</item>
++    <item>"Escala da animação 0,25x"</item>
+     <item msgid="3375781541913316411">"Escala de animação 0,5x"</item>
++    <item>"Escala da animação 0,75x"</item>
+     <item msgid="1991041427801869945">"Escala de animação 1x"</item>
+     <item msgid="4012689927622382874">"Escala de animação 1,5x"</item>
+     <item msgid="3289156759925947169">"Escala de animação 2x"</item>
+@@ -427,7 +431,9 @@
+   </string-array>
+   <string-array name="animator_duration_scale_entries">
+     <item msgid="6039901060648228241">"Animação desativada"</item>
++    <item>"Escala da animação 0,25x"</item>
+     <item msgid="1138649021950863198">"Escala de animação 0,5x"</item>
++    <item>"Escala da animação 0,75x"</item>
+     <item msgid="4394388961370833040">"Escala de animação 1x"</item>
+     <item msgid="8125427921655194973">"Escala de animação 1,5x"</item>
+     <item msgid="3334024790739189573">"Escala de animação 2x"</item>
+diff --git a/res/values-pt/arrays.xml b/res/values-pt/arrays.xml
+index d440a1d..8a9941e 100644
+--- a/res/values-pt/arrays.xml
++++ b/res/values-pt/arrays.xml
+@@ -409,27 +409,33 @@
+   </string-array>
+   <string-array name="window_animation_scale_entries">
+     <item msgid="8134156599370824081">"Animação desligada"</item>
+-    <item msgid="6624864048416710414">"Escala da animação 0,5 x"</item>
++    <item>"Escala da animação 0,25x"</item>
++    <item msgid="6624864048416710414">"Escala da animação 0,5x"</item>
++    <item>"Escala da animação 0,75x"</item>
+     <item msgid="2219332261255416635">"Escala da animação 1x"</item>
+-    <item msgid="3544428804137048509">"Escala de animação 1,5 x"</item>
++    <item msgid="3544428804137048509">"Escala de animação 1,5x"</item>
+     <item msgid="3110710404225974514">"Escala da animação 2x"</item>
+-    <item msgid="4402738611528318731">"Escala de animação 5 x"</item>
+-    <item msgid="6189539267968330656">"Escala de animação 10 x"</item>
++    <item msgid="4402738611528318731">"Escala de animação 5x"</item>
++    <item msgid="6189539267968330656">"Escala de animação 10x"</item>
+   </string-array>
+   <string-array name="transition_animation_scale_entries">
+     <item msgid="8464255836173039442">"Animação desligada"</item>
+-    <item msgid="3375781541913316411">"Escala da animação 0,5 x"</item>
++    <item>"Escala da animação 0,25x"</item>
++    <item msgid="3375781541913316411">"Escala da animação 0,5x"</item>
++    <item>"Escala da animação 0,75x"</item>
+     <item msgid="1991041427801869945">"Escala da animação 1x"</item>
+-    <item msgid="4012689927622382874">"Escala de animação 1,5 x"</item>
++    <item msgid="4012689927622382874">"Escala de animação 1,5x"</item>
+     <item msgid="3289156759925947169">"Escala da animação 2x"</item>
+-    <item msgid="7705857441213621835">"Escala de animação 5 x"</item>
+-    <item msgid="6660750935954853365">"Escala de animação 10 x"</item>
++    <item msgid="7705857441213621835">"Escala de animação 5x"</item>
++    <item msgid="6660750935954853365">"Escala de animação 10x"</item>
+   </string-array>
+   <string-array name="animator_duration_scale_entries">
+     <item msgid="6039901060648228241">"Animação desativada"</item>
+-    <item msgid="1138649021950863198">"Escala de animação 5x"</item>
++    <item>"Escala da animação 0,25x"</item>
++    <item msgid="1138649021950863198">"Escala de animação 0,5x"</item>
++    <item>"Escala da animação 0,25x"</item>
+     <item msgid="4394388961370833040">"Escala de animação 1x"</item>
+-    <item msgid="8125427921655194973">"Escala de animação 1.5 x"</item>
++    <item msgid="8125427921655194973">"Escala de animação 1,5x"</item>
+     <item msgid="3334024790739189573">"Escala de animação 2x"</item>
+     <item msgid="3170120558236848008">"Escala de animação 5x"</item>
+     <item msgid="1069584980746680398">"Escala de animação 10x"</item>
+diff --git a/res/values-ro/arrays.xml b/res/values-ro/arrays.xml
+index 76188ee..d629bbc 100644
+--- a/res/values-ro/arrays.xml
++++ b/res/values-ro/arrays.xml
+@@ -409,7 +409,9 @@
+   </string-array>
+   <string-array name="window_animation_scale_entries">
+     <item msgid="8134156599370824081">"Animaţie dezactivată"</item>
++    <item>"Animaţie la scara 0,25x"</item>
+     <item msgid="6624864048416710414">"Animaţie la scara 0,5x"</item>
++    <item>"Animaţie la scara 0,75x"</item>
+     <item msgid="2219332261255416635">"Animaţie la scara 1x"</item>
+     <item msgid="3544428804137048509">"Animaţie la scara 1,5x"</item>
+     <item msgid="3110710404225974514">"Animaţie la scara 2x"</item>
+@@ -418,7 +420,9 @@
+   </string-array>
+   <string-array name="transition_animation_scale_entries">
+     <item msgid="8464255836173039442">"Animaţie dezactivată"</item>
++    <item>"Animaţie la scara 0,25x"</item>
+     <item msgid="3375781541913316411">"Animaţie la scara 0,5x"</item>
++    <item>"Animaţie la scara 0,75x"</item>
+     <item msgid="1991041427801869945">"Animaţie la scara 1x"</item>
+     <item msgid="4012689927622382874">"Animaţie la scara 1,5x"</item>
+     <item msgid="3289156759925947169">"Animaţie la scara 2x"</item>
+@@ -427,7 +431,9 @@
+   </string-array>
+   <string-array name="animator_duration_scale_entries">
+     <item msgid="6039901060648228241">"Animaţie dezactivată"</item>
++    <item>"Animaţie la scara 0,25x"</item>
+     <item msgid="1138649021950863198">"Animaţie la scara 0,5x"</item>
++    <item>"Animaţie la scara 0,75x"</item>
+     <item msgid="4394388961370833040">"Animaţie la scara 1x"</item>
+     <item msgid="8125427921655194973">"Animaţie la scara 1,5x"</item>
+     <item msgid="3334024790739189573">"Animaţie la scara 2x"</item>
+diff --git a/res/values-ru/arrays.xml b/res/values-ru/arrays.xml
+index 3830fda..f7e1a29 100644
+--- a/res/values-ru/arrays.xml
++++ b/res/values-ru/arrays.xml
+@@ -409,7 +409,9 @@
+   </string-array>
+   <string-array name="window_animation_scale_entries">
+     <item msgid="8134156599370824081">"Отключение анимации"</item>
++    <item>"Анимация (масштаб: 0,25x)"</item>
+     <item msgid="6624864048416710414">"Анимация (масштаб: 0,5x)"</item>
++    <item>"Анимация (масштаб: 0,75x)"</item>
+     <item msgid="2219332261255416635">"Анимация (масштаб: 1x)"</item>
+     <item msgid="3544428804137048509">"Анимация (масштаб: 1,5x)"</item>
+     <item msgid="3110710404225974514">"Анимация (масштаб: 2x)"</item>
+@@ -418,7 +420,9 @@
+   </string-array>
+   <string-array name="transition_animation_scale_entries">
+     <item msgid="8464255836173039442">"Отключение анимации"</item>
++    <item>"Анимация (масштаб: 0,25x)"</item>
+     <item msgid="3375781541913316411">"Анимация (масштаб: 0,5x)"</item>
++    <item>"Анимация (масштаб: 0,75x)"</item>
+     <item msgid="1991041427801869945">"Анимация (масштаб: 1x)"</item>
+     <item msgid="4012689927622382874">"Анимация (масштаб: 1,5x)"</item>
+     <item msgid="3289156759925947169">"Анимация (масштаб: 2x)"</item>
+@@ -427,7 +431,9 @@
+   </string-array>
+   <string-array name="animator_duration_scale_entries">
+     <item msgid="6039901060648228241">"Без анимации"</item>
++    <item>"Скорость 0,25x"</item>
+     <item msgid="1138649021950863198">"Скорость 0,5x"</item>
++    <item>"Скорость 0,75x"</item>
+     <item msgid="4394388961370833040">"Скорость 1x"</item>
+     <item msgid="8125427921655194973">"Скорость 1,5x"</item>
+     <item msgid="3334024790739189573">"Скорость 2x"</item>
+diff --git a/res/values-sk/arrays.xml b/res/values-sk/arrays.xml
+index 68a2252..3ca384e 100644
+--- a/res/values-sk/arrays.xml
++++ b/res/values-sk/arrays.xml
+@@ -409,7 +409,9 @@
+   </string-array>
+   <string-array name="window_animation_scale_entries">
+     <item msgid="8134156599370824081">"Animácia je vypnutá"</item>
++    <item>"Mierka animácie 0,25x"</item>
+     <item msgid="6624864048416710414">"Mierka animácie 0,5x"</item>
++    <item>"Mierka animácie 0,75x"</item>
+     <item msgid="2219332261255416635">"Mierka animácie 1x"</item>
+     <item msgid="3544428804137048509">"Mierka animácie 1,5x"</item>
+     <item msgid="3110710404225974514">"Mierka animácie 2x"</item>
+@@ -418,7 +420,9 @@
+   </string-array>
+   <string-array name="transition_animation_scale_entries">
+     <item msgid="8464255836173039442">"Animácia je vypnutá"</item>
++    <item>"Mierka animácie 0,25x"</item>
+     <item msgid="3375781541913316411">"Mierka animácie 0,5x"</item>
++    <item>"Mierka animácie 0,75x"</item>
+     <item msgid="1991041427801869945">"Mierka animácie 1x"</item>
+     <item msgid="4012689927622382874">"Mierka animácie 1,5x"</item>
+     <item msgid="3289156759925947169">"Mierka animácie 2x"</item>
+@@ -427,7 +431,9 @@
+   </string-array>
+   <string-array name="animator_duration_scale_entries">
+     <item msgid="6039901060648228241">"Animácia je vypnutá"</item>
++    <item>"Mierka animácie 0,25x"</item>
+     <item msgid="1138649021950863198">"Mierka animácie 0,5x"</item>
++    <item>"Mierka animácie 0,75x"</item>
+     <item msgid="4394388961370833040">"Mierka animácie 1x"</item>
+     <item msgid="8125427921655194973">"Mierka animácie 1,5x"</item>
+     <item msgid="3334024790739189573">"Mierka animácie 2x"</item>
+diff --git a/res/values-sl/arrays.xml b/res/values-sl/arrays.xml
+index 471e2ed..55f452d 100644
+--- a/res/values-sl/arrays.xml
++++ b/res/values-sl/arrays.xml
+@@ -409,7 +409,9 @@
+   </string-array>
+   <string-array name="window_animation_scale_entries">
+     <item msgid="8134156599370824081">"Animacija je izključena"</item>
++    <item>"Merilo animacije: 0,25 x"</item>
+     <item msgid="6624864048416710414">"Merilo animacije: 0,5 x"</item>
++    <item>"Merilo animacije: 0,75 x"</item>
+     <item msgid="2219332261255416635">"Merilo animacije: 1 x"</item>
+     <item msgid="3544428804137048509">"Merilo animacije: 1,5 x"</item>
+     <item msgid="3110710404225974514">"Merilo animacije: 2 x"</item>
+@@ -418,7 +420,9 @@
+   </string-array>
+   <string-array name="transition_animation_scale_entries">
+     <item msgid="8464255836173039442">"Animacija je izključena"</item>
++    <item>"Merilo animacije: 0,25 x"</item>
+     <item msgid="3375781541913316411">"Merilo animacije:  0,5 x"</item>
++    <item>"Merilo animacije: 0,75 x"</item>
+     <item msgid="1991041427801869945">"Merilo animacije: 1 x"</item>
+     <item msgid="4012689927622382874">"Merilo animacije: 1,5 x"</item>
+     <item msgid="3289156759925947169">"Merilo animacije: 2 x"</item>
+@@ -427,7 +431,9 @@
+   </string-array>
+   <string-array name="animator_duration_scale_entries">
+     <item msgid="6039901060648228241">"Animacija izklopljena"</item>
++    <item>"Merilo animacije: 0,25 x"</item>
+     <item msgid="1138649021950863198">"Merilo animacije: 0,5 x"</item>
++    <item>"Merilo animacije: 0,75 x"</item>
+     <item msgid="4394388961370833040">"Merilo animacije: 1 x"</item>
+     <item msgid="8125427921655194973">"Merilo animacije: 1,5 x"</item>
+     <item msgid="3334024790739189573">"Merilo animacije: 2 x"</item>
+diff --git a/res/values-sr/arrays.xml b/res/values-sr/arrays.xml
+index 3399cf9..b4558cf 100644
+--- a/res/values-sr/arrays.xml
++++ b/res/values-sr/arrays.xml
+@@ -409,7 +409,9 @@
+   </string-array>
+   <string-array name="window_animation_scale_entries">
+     <item msgid="8134156599370824081">"Анимација је искључена"</item>
++    <item>"Размера анимације 0,25x"</item>
+     <item msgid="6624864048416710414">"Размера анимације 0,5x"</item>
++    <item>"Размера анимације 0,75x"</item>
+     <item msgid="2219332261255416635">"Размера анимације 1x"</item>
+     <item msgid="3544428804137048509">"Размера анимације 1,5x"</item>
+     <item msgid="3110710404225974514">"Размера анимације 2x"</item>
+@@ -418,7 +420,9 @@
+   </string-array>
+   <string-array name="transition_animation_scale_entries">
+     <item msgid="8464255836173039442">"Анимација је искључена"</item>
++    <item>"Размера анимације 0,25x"</item>
+     <item msgid="3375781541913316411">"Размера анимације 0,5x"</item>
++    <item>"Размера анимације 0,75x"</item>
+     <item msgid="1991041427801869945">"Размера анимације 1x"</item>
+     <item msgid="4012689927622382874">"Размера анимације 1,5x"</item>
+     <item msgid="3289156759925947169">"Размера анимације 2x"</item>
+@@ -427,7 +431,9 @@
+   </string-array>
+   <string-array name="animator_duration_scale_entries">
+     <item msgid="6039901060648228241">"Анимација је искључена"</item>
++    <item>"Размера анимације 0,25x"</item>
+     <item msgid="1138649021950863198">"Размера анимације 0,5x"</item>
++    <item>"Размера анимације 0,75x"</item>
+     <item msgid="4394388961370833040">"Размера анимације 1x"</item>
+     <item msgid="8125427921655194973">"Размера анимације 1,5x"</item>
+     <item msgid="3334024790739189573">"Размера анимације 2x"</item>
+diff --git a/res/values-sv/arrays.xml b/res/values-sv/arrays.xml
+index 07fb8b4..fc2b780 100644
+--- a/res/values-sv/arrays.xml
++++ b/res/values-sv/arrays.xml
+@@ -409,7 +409,9 @@
+   </string-array>
+   <string-array name="window_animation_scale_entries">
+     <item msgid="8134156599370824081">"Animering avstängd"</item>
++    <item>"Animering i skala 0,25x"</item>
+     <item msgid="6624864048416710414">"Animering i skala 0,5x"</item>
++    <item>"Animering i skala 0,75x"</item>
+     <item msgid="2219332261255416635">"Animering i skala 1x"</item>
+     <item msgid="3544428804137048509">"Animering i skala 1,5x"</item>
+     <item msgid="3110710404225974514">"Animering i skala 2x"</item>
+@@ -418,7 +420,9 @@
+   </string-array>
+   <string-array name="transition_animation_scale_entries">
+     <item msgid="8464255836173039442">"Animering avstängd"</item>
++    <item>"Animering i skala 0,25x"</item>
+     <item msgid="3375781541913316411">"Animering i skala 0,5x"</item>
++    <item>"Animering i skala 0,75x"</item>
+     <item msgid="1991041427801869945">"Animering i skala 1x"</item>
+     <item msgid="4012689927622382874">"Animering i skala 1,5x"</item>
+     <item msgid="3289156759925947169">"Animering i skala 2x"</item>
+@@ -427,7 +431,9 @@
+   </string-array>
+   <string-array name="animator_duration_scale_entries">
+     <item msgid="6039901060648228241">"Animering avstängd"</item>
++    <item>"Animering i skala 0,25x"</item>
+     <item msgid="1138649021950863198">"Animering i skala 0,5x"</item>
++    <item>"Animering i skala 0,75x"</item>
+     <item msgid="4394388961370833040">"Animering i skala 1x"</item>
+     <item msgid="8125427921655194973">"Animering i skala 1,5x"</item>
+     <item msgid="3334024790739189573">"Animering i skala 2x"</item>
+diff --git a/res/values-sw/arrays.xml b/res/values-sw/arrays.xml
+index 2ef1f02..eeea55c 100644
+--- a/res/values-sw/arrays.xml
++++ b/res/values-sw/arrays.xml
+@@ -409,7 +409,9 @@
+   </string-array>
+   <string-array name="window_animation_scale_entries">
+     <item msgid="8134156599370824081">"Haiwani imezimwa"</item>
++    <item>"Skeli .25x ya haiwani"</item>
+     <item msgid="6624864048416710414">"Skeli .5x ya haiwani"</item>
++    <item>"Skeli .75x ya haiwani"</item>
+     <item msgid="2219332261255416635">"Skeli 1x ya haiwani"</item>
+     <item msgid="3544428804137048509">"Skeli 1.5x ya haiwani"</item>
+     <item msgid="3110710404225974514">"Skeli 2x ya haiwani"</item>
+@@ -418,7 +420,9 @@
+   </string-array>
+   <string-array name="transition_animation_scale_entries">
+     <item msgid="8464255836173039442">"Haiwani imezimwa"</item>
++    <item>"Skeli .25x ya haiwani"</item>
+     <item msgid="3375781541913316411">"Skeli .5x ya haiwani"</item>
++    <item>"Skeli .75x ya haiwani"</item>
+     <item msgid="1991041427801869945">"Skeli 1x ya haiwani"</item>
+     <item msgid="4012689927622382874">"Skeli 1.5x ya haiwani"</item>
+     <item msgid="3289156759925947169">"Skeli 2x ya haiwani"</item>
+@@ -427,7 +431,9 @@
+   </string-array>
+   <string-array name="animator_duration_scale_entries">
+     <item msgid="6039901060648228241">"Uhuishaji umezimwa"</item>
++    <item>"Mizani .25x ya uhuishaji"</item>
+     <item msgid="1138649021950863198">"Mizani .5x ya uhuishaji"</item>
++    <item>"Mizani .75x ya uhuishaji"</item>
+     <item msgid="4394388961370833040">"Mizani 1x ya uhuishaji"</item>
+     <item msgid="8125427921655194973">"Mizani 1.5x ya uhuishaji"</item>
+     <item msgid="3334024790739189573">"Mizani 2x ya uhuishaji"</item>
+diff --git a/res/values-th/arrays.xml b/res/values-th/arrays.xml
+index 48af783..04f9f0f 100644
+--- a/res/values-th/arrays.xml
++++ b/res/values-th/arrays.xml
+@@ -409,7 +409,9 @@
+   </string-array>
+   <string-array name="window_animation_scale_entries">
+     <item msgid="8134156599370824081">"ปิดภาพเคลื่อนไหว"</item>
++    <item>"ภาพเคลื่อนไหวขนาด .25 เท่า"</item>
+     <item msgid="6624864048416710414">"ภาพเคลื่อนไหวขนาด .5 เท่า"</item>
++    <item>"ภาพเคลื่อนไหวขนาด .75 เท่า"</item>
+     <item msgid="2219332261255416635">"ภาพเคลื่อนไหวขนาด 1 เท่า"</item>
+     <item msgid="3544428804137048509">"ภาพเคลื่อนไหวขนาด 1.5 เท่า"</item>
+     <item msgid="3110710404225974514">"ภาพเคลื่อนไหวขนาด 2 เท่า"</item>
+@@ -418,7 +420,9 @@
+   </string-array>
+   <string-array name="transition_animation_scale_entries">
+     <item msgid="8464255836173039442">"ปิดภาพเคลื่อนไหว"</item>
++    <item>"ภาพเคลื่อนไหวขนาด .25 เท่า"</item>
+     <item msgid="3375781541913316411">"ภาพเคลื่อนไหวขนาด .5 เท่า"</item>
++    <item>"ภาพเคลื่อนไหวขนาด .75 เท่า"</item>
+     <item msgid="1991041427801869945">"ภาพเคลื่อนไหวขนาด 1 เท่า"</item>
+     <item msgid="4012689927622382874">"ภาพเคลื่อนไหวขนาด 1.5 เท่า"</item>
+     <item msgid="3289156759925947169">"ภาพเคลื่อนไหวขนาด 2 เท่า"</item>
+@@ -427,7 +431,9 @@
+   </string-array>
+   <string-array name="animator_duration_scale_entries">
+     <item msgid="6039901060648228241">"ปิดภาพเคลื่อนไหว"</item>
++    <item>"ความเร็วภาพเคลื่อนไหว .25 เท่า"</item>
+     <item msgid="1138649021950863198">"ความเร็วภาพเคลื่อนไหว .5 เท่า"</item>
++    <item>"ความเร็วภาพเคลื่อนไหว .75 เท่า"</item>
+     <item msgid="4394388961370833040">"ความเร็วภาพเคลื่อนไหว 1 เท่า"</item>
+     <item msgid="8125427921655194973">"ความเร็วภาพเคลื่อนไหว 1.5 เท่า"</item>
+     <item msgid="3334024790739189573">"ความเร็วภาพเคลื่อนไหว 2 เท่า"</item>
+diff --git a/res/values-tl/arrays.xml b/res/values-tl/arrays.xml
+index bdc7b38..d5d6857 100644
+--- a/res/values-tl/arrays.xml
++++ b/res/values-tl/arrays.xml
+@@ -409,7 +409,9 @@
+   </string-array>
+   <string-array name="window_animation_scale_entries">
+     <item msgid="8134156599370824081">"Naka-off ang animation"</item>
++    <item>"Scale ng animation .25x"</item>
+     <item msgid="6624864048416710414">"Scale ng animation .5x"</item>
++    <item>"Scale ng animation .75x"</item>
+     <item msgid="2219332261255416635">"Scale ng animation 1x"</item>
+     <item msgid="3544428804137048509">"Scale ng animation 1.5x"</item>
+     <item msgid="3110710404225974514">"Scale ng animation 2x"</item>
+@@ -418,7 +420,9 @@
+   </string-array>
+   <string-array name="transition_animation_scale_entries">
+     <item msgid="8464255836173039442">"Naka-off ang animation"</item>
++    <item>"Scale ng animation .25x"</item>
+     <item msgid="3375781541913316411">"Scale ng animation .5x"</item>
++    <item>"Scale ng animation .75x"</item>
+     <item msgid="1991041427801869945">"Scale ng animation 1x"</item>
+     <item msgid="4012689927622382874">"Scale ng animation 1.5x"</item>
+     <item msgid="3289156759925947169">"Scale ng animation 2x"</item>
+@@ -427,7 +431,9 @@
+   </string-array>
+   <string-array name="animator_duration_scale_entries">
+     <item msgid="6039901060648228241">"Naka-off ang animation"</item>
++    <item>"Scale ng animation .25x"</item>
+     <item msgid="1138649021950863198">"Scale ng animation .5x"</item>
++    <item>"Scale ng animation .75x"</item>
+     <item msgid="4394388961370833040">"Scale ng animation 1x"</item>
+     <item msgid="8125427921655194973">"Scale ng animation 1.5x"</item>
+     <item msgid="3334024790739189573">"Scale ng animation 2x"</item>
+diff --git a/res/values-tr/arrays.xml b/res/values-tr/arrays.xml
+index f0f29f7..1961a7f 100644
+--- a/res/values-tr/arrays.xml
++++ b/res/values-tr/arrays.xml
+@@ -409,7 +409,9 @@
+   </string-array>
+   <string-array name="window_animation_scale_entries">
+     <item msgid="8134156599370824081">"Animasyon kapalı"</item>
++    <item>"Animasyon ölçeği 0,25x"</item>
+     <item msgid="6624864048416710414">"Animasyon ölçeği 0,5x"</item>
++    <item>"Animasyon ölçeği 0,75x"</item>
+     <item msgid="2219332261255416635">"Animasyon ölçeği 1x"</item>
+     <item msgid="3544428804137048509">"Animasyon ölçeği 1,5x"</item>
+     <item msgid="3110710404225974514">"Animasyon ölçeği 2x"</item>
+@@ -418,7 +420,9 @@
+   </string-array>
+   <string-array name="transition_animation_scale_entries">
+     <item msgid="8464255836173039442">"Animasyon kapalı"</item>
++    <item>"Animasyon ölçeği 0,25x"</item>
+     <item msgid="3375781541913316411">"Animasyon ölçeği 0,5x"</item>
++    <item>"Animasyon ölçeği 0,75x"</item>
+     <item msgid="1991041427801869945">"Animasyon ölçeği 1x"</item>
+     <item msgid="4012689927622382874">"Animasyon ölçeği 1,5x"</item>
+     <item msgid="3289156759925947169">"Animasyon ölçeği 2x"</item>
+@@ -427,7 +431,9 @@
+   </string-array>
+   <string-array name="animator_duration_scale_entries">
+     <item msgid="6039901060648228241">"Animasyon kapalı"</item>
++    <item>"Animasyon ölçeği 0,25x"</item>
+     <item msgid="1138649021950863198">"Animasyon ölçeği 0,5x"</item>
++    <item>"Animasyon ölçeği 0,75x"</item>
+     <item msgid="4394388961370833040">"Animasyon ölçeği 1x"</item>
+     <item msgid="8125427921655194973">"Animasyon ölçeği 1,5x"</item>
+     <item msgid="3334024790739189573">"Animasyon ölçeği 2x"</item>
+diff --git a/res/values-uk/arrays.xml b/res/values-uk/arrays.xml
+index b32c0ac..e6c285c 100644
+--- a/res/values-uk/arrays.xml
++++ b/res/values-uk/arrays.xml
+@@ -409,7 +409,9 @@
+   </string-array>
+   <string-array name="window_animation_scale_entries">
+     <item msgid="8134156599370824081">"Анімацію вимкнено"</item>
++    <item>"Ступінь анімації 0,25x"</item>
+     <item msgid="6624864048416710414">"Ступінь анімації 0,5x"</item>
++    <item>"Ступінь анімації 0,75x"</item>
+     <item msgid="2219332261255416635">"Ступінь анімації 1x"</item>
+     <item msgid="3544428804137048509">"Ступінь анімації 1,5x"</item>
+     <item msgid="3110710404225974514">"Ступінь анімації 2x"</item>
+@@ -418,7 +420,9 @@
+   </string-array>
+   <string-array name="transition_animation_scale_entries">
+     <item msgid="8464255836173039442">"Анімацію вимкнено"</item>
++    <item>"Ступінь анімації 0,25x"</item>
+     <item msgid="3375781541913316411">"Ступінь анімації 0,5x"</item>
++    <item>"Ступінь анімації 0,75x"</item>
+     <item msgid="1991041427801869945">"Ступінь анімації 1x"</item>
+     <item msgid="4012689927622382874">"Ступінь анімації 1,5x"</item>
+     <item msgid="3289156759925947169">"Ступінь анімації 2x"</item>
+@@ -427,7 +431,9 @@
+   </string-array>
+   <string-array name="animator_duration_scale_entries">
+     <item msgid="6039901060648228241">"Анімацію вимкнено"</item>
++    <item>"Ступінь анімації 0,25x"</item>
+     <item msgid="1138649021950863198">"Ступінь анімації 0,5x"</item>
++    <item>"Ступінь анімації 0,75x"</item>
+     <item msgid="4394388961370833040">"Ступінь анімації 1x"</item>
+     <item msgid="8125427921655194973">"Ступінь анімації 1,5x"</item>
+     <item msgid="3334024790739189573">"Ступінь анімації 2x"</item>
+diff --git a/res/values-vi/arrays.xml b/res/values-vi/arrays.xml
+index 3bbd6c5..c645810 100644
+--- a/res/values-vi/arrays.xml
++++ b/res/values-vi/arrays.xml
+@@ -409,7 +409,9 @@
+   </string-array>
+   <string-array name="window_animation_scale_entries">
+     <item msgid="8134156599370824081">"Tắt hình động"</item>
++    <item>"Tỷ lệ hình động 0,25x"</item>
+     <item msgid="6624864048416710414">"Tỷ lệ hình động 0,5x"</item>
++    <item>"Tỷ lệ hình động 0,75x"</item>
+     <item msgid="2219332261255416635">"Tỷ lệ hình động 1x"</item>
+     <item msgid="3544428804137048509">"Tỷ lệ hình động 1,5x"</item>
+     <item msgid="3110710404225974514">"Tỷ lệ hình động 2x"</item>
+@@ -418,7 +420,9 @@
+   </string-array>
+   <string-array name="transition_animation_scale_entries">
+     <item msgid="8464255836173039442">"Tắt hình động"</item>
++    <item>"Tỷ lệ hình động 0,25x"</item>
+     <item msgid="3375781541913316411">"Tỷ lệ hình động 0,5x"</item>
++    <item>"Tỷ lệ hình động 0,75x"</item>
+     <item msgid="1991041427801869945">"Tỷ lệ hình động 1x"</item>
+     <item msgid="4012689927622382874">"Tỷ lệ hình động 1,5x"</item>
+     <item msgid="3289156759925947169">"Tỷ lệ hình động 2x"</item>
+@@ -427,7 +431,9 @@
+   </string-array>
+   <string-array name="animator_duration_scale_entries">
+     <item msgid="6039901060648228241">"Tắt hình động"</item>
++    <item>"Tỷ lệ hình động 0,25x"</item>
+     <item msgid="1138649021950863198">"Tỷ lệ hình động 0,5x"</item>
++    <item>"Tỷ lệ hình động 0,75x"</item>
+     <item msgid="4394388961370833040">"Tỷ lệ hình động 1x"</item>
+     <item msgid="8125427921655194973">"Tỷ lệ hình động 1,5x"</item>
+     <item msgid="3334024790739189573">"Tỷ lệ hình động 2x"</item>
+diff --git a/res/values-zh-rCN/arrays.xml b/res/values-zh-rCN/arrays.xml
+index aa5e995..d5ab76c 100644
+--- a/res/values-zh-rCN/arrays.xml
++++ b/res/values-zh-rCN/arrays.xml
+@@ -442,7 +442,9 @@
+   </string-array>
+   <string-array name="window_animation_scale_entries">
+     <item msgid="8134156599370824081">"关闭动画"</item>
++    <item>"动画缩放 0.25x"</item>
+     <item msgid="6624864048416710414">"动画缩放 0.5x"</item>
++    <item>"动画缩放 0.75x"</item>
+     <item msgid="2219332261255416635">"动画缩放 1x"</item>
+     <item msgid="3544428804137048509">"动画缩放 1.5x"</item>
+     <item msgid="3110710404225974514">"动画缩放 2x"</item>
+@@ -451,7 +453,9 @@
+   </string-array>
+   <string-array name="transition_animation_scale_entries">
+     <item msgid="8464255836173039442">"关闭动画"</item>
++    <item>"动画缩放 0.25x"</item>
+     <item msgid="3375781541913316411">"动画缩放 0.5x"</item>
++    <item>"动画缩放 0.75x"</item>
+     <item msgid="1991041427801869945">"动画缩放 1x"</item>
+     <item msgid="4012689927622382874">"动画缩放 1.5x"</item>
+     <item msgid="3289156759925947169">"动画缩放 2x"</item>
+@@ -460,7 +464,9 @@
+   </string-array>
+   <string-array name="animator_duration_scale_entries">
+     <item msgid="6039901060648228241">"关闭动画"</item>
++    <item>"动画缩放 0.25x"</item>
+     <item msgid="1138649021950863198">"动画缩放 0.5x"</item>
++    <item>"动画缩放 0.75x"</item>
+     <item msgid="4394388961370833040">"动画缩放 1x"</item>
+     <item msgid="8125427921655194973">"动画缩放 1.5x"</item>
+     <item msgid="3334024790739189573">"动画缩放 2x"</item>
+diff --git a/res/values-zh-rTW/arrays.xml b/res/values-zh-rTW/arrays.xml
+index 6677d8c..d990921 100644
+--- a/res/values-zh-rTW/arrays.xml
++++ b/res/values-zh-rTW/arrays.xml
+@@ -409,7 +409,9 @@
+   </string-array>
+   <string-array name="window_animation_scale_entries">
+     <item msgid="8134156599370824081">"關閉動畫"</item>
++    <item>"動畫比例 0.25x"</item>
+     <item msgid="6624864048416710414">"動畫比例 0.5x"</item>
++    <item>"動畫比例 0.75x"</item>
+     <item msgid="2219332261255416635">"動畫比例 1x"</item>
+     <item msgid="3544428804137048509">"動畫比例 1.5x"</item>
+     <item msgid="3110710404225974514">"動畫比例 2x"</item>
+@@ -418,7 +420,9 @@
+   </string-array>
+   <string-array name="transition_animation_scale_entries">
+     <item msgid="8464255836173039442">"關閉動畫"</item>
++    <item>"動畫比例 0.25x"</item>
+     <item msgid="3375781541913316411">"動畫比例 0.5x"</item>
++    <item>"動畫比例 0.75x"</item>
+     <item msgid="1991041427801869945">"動畫比例 1x"</item>
+     <item msgid="4012689927622382874">"動畫比例 1.5x"</item>
+     <item msgid="3289156759925947169">"動畫比例 2x"</item>
+@@ -427,7 +431,9 @@
+   </string-array>
+   <string-array name="animator_duration_scale_entries">
+     <item msgid="6039901060648228241">"關閉動畫"</item>
++    <item>"動畫比例 0.25x"</item>
+     <item msgid="1138649021950863198">"動畫比例 0.5x"</item>
++    <item>"動畫比例 0.75x"</item>
+     <item msgid="4394388961370833040">"動畫比例 1x"</item>
+     <item msgid="8125427921655194973">"動畫比例 1.5x"</item>
+     <item msgid="3334024790739189573">"動畫比例 2x"</item>
+diff --git a/res/values-zu/arrays.xml b/res/values-zu/arrays.xml
+index f3a81bf..7d745ac 100644
+--- a/res/values-zu/arrays.xml
++++ b/res/values-zu/arrays.xml
+@@ -409,7 +409,9 @@
+   </string-array>
+   <string-array name="window_animation_scale_entries">
+     <item msgid="8134156599370824081">"Isithombe esinyakazayo sivliwe"</item>
++    <item>"Isilinganiso sesithombe esinyakazayo ngu-025x"</item>
+     <item msgid="6624864048416710414">"Isilinganiso sesithombe esinyakazayo ngu-05x"</item>
++    <item>"Isilinganiso sesithombe esinyakazayo ngu-075x"</item>
+     <item msgid="2219332261255416635">"Isilinganiso sesithombe esinyakazayo ngu-1x"</item>
+     <item msgid="3544428804137048509">"Isilinganiso sesithombe esinyakazayo"</item>
+     <item msgid="3110710404225974514">"Isilinganiso sesithombe esinyakazayo ngu-2x"</item>
+@@ -418,7 +420,9 @@
+   </string-array>
+   <string-array name="transition_animation_scale_entries">
+     <item msgid="8464255836173039442">"Isithombe esinyakazayo sivaliwe"</item>
++    <item>"Isilinganiso sesithombe esinyakazayo ngu-.25x"</item>
+     <item msgid="3375781541913316411">"Isilinganiso sesithombe esinyakazayo ngu-.5x"</item>
++    <item>"Isilinganiso sesithombe esinyakazayo ngu-.75x"</item>
+     <item msgid="1991041427801869945">"Isilinganiso sesithombe ngu-1x"</item>
+     <item msgid="4012689927622382874">"Isilinganiso sesithombe esinyakazayo ngu-1.5x"</item>
+     <item msgid="3289156759925947169">"Isilinganiso sesithombe esinyakazayo ngu-2x"</item>
+@@ -427,7 +431,9 @@
+   </string-array>
+   <string-array name="animator_duration_scale_entries">
+     <item msgid="6039901060648228241">"Isithombe esinyakazayo sivaliwe"</item>
++    <item>"Isilinganiso sesithombe esinyakazayo ngu-025x"</item>
+     <item msgid="1138649021950863198">"Isilinganiso sesithombe esinyakazayo ngu-05x"</item>
++    <item>"Isilinganiso sesithombe esinyakazayo ngu-075x"</item>
+     <item msgid="4394388961370833040">"Isilinganiso sesithombe esinyakazayo ngu-1x"</item>
+     <item msgid="8125427921655194973">"Isilinganiso sesithombe esinyakazayo ngu-1.5x"</item>
+     <item msgid="3334024790739189573">"Isilinganiso sesithombe esinyakazayo ngu-2x"</item>
+diff --git a/res/values/arrays.xml b/res/values/arrays.xml
+index 2c7819d..a37e238 100644
+--- a/res/values/arrays.xml
++++ b/res/values/arrays.xml
+@@ -962,7 +962,9 @@
+     <!-- Titles for window animation scale preference. [CHAR LIMIT=35] -->
+     <string-array name="window_animation_scale_entries">
+         <item>Animation off</item>
++        <item>Animation scale .25x</item>
+         <item>Animation scale .5x</item>
++        <item>Animation scale .75x</item>
+         <item>Animation scale 1x</item>
+         <item>Animation scale 1.5x</item>
+         <item>Animation scale 2x</item>
+@@ -973,7 +975,9 @@
+     <!-- Values for window animation scale preference. -->
+     <string-array name="window_animation_scale_values" translatable="false" >
+         <item>0</item>
++        <item>.25</item>
+         <item>.5</item>
++        <item>.75</item>
+         <item>1</item>
+         <item>1.5</item>
+         <item>2</item>
+@@ -984,7 +988,9 @@
+     <!-- Titles for transition animation scale preference. [CHAR LIMIT=35] -->
+     <string-array name="transition_animation_scale_entries">
+         <item>Animation off</item>
++        <item>Animation scale .25x</item>
+         <item>Animation scale .5x</item>
++        <item>Animation scale .75x</item>
+         <item>Animation scale 1x</item>
+         <item>Animation scale 1.5x</item>
+         <item>Animation scale 2x</item>
+@@ -995,7 +1001,9 @@
+     <!-- Values for transition animation scale preference. -->
+     <string-array name="transition_animation_scale_values" translatable="false" >
+         <item>0</item>
++        <item>.25</item>
+         <item>.5</item>
++        <item>.75</item>
+         <item>1</item>
+         <item>1.5</item>
+         <item>2</item>
+@@ -1006,7 +1014,9 @@
+     <!-- Titles for animator duration scale preference. [CHAR LIMIT=35] -->
+     <string-array name="animator_duration_scale_entries">
+         <item>Animation off</item>
++        <item>Animation scale .25x</item>
+         <item>Animation scale .5x</item>
++        <item>Animation scale .75x</item>
+         <item>Animation scale 1x</item>
+         <item>Animation scale 1.5x</item>
+         <item>Animation scale 2x</item>
+@@ -1017,7 +1027,9 @@
+     <!-- Values for animator duration scale preference. -->
+     <string-array name="animator_duration_scale_values" translatable="false" >
+         <item>0</item>
++        <item>.25</item>
+         <item>.5</item>
++        <item>.75</item>
+         <item>1</item>
+         <item>1.5</item>
+         <item>2</item>
+
